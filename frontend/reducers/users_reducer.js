@@ -3,7 +3,7 @@ import {
 } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
-const usersReducer = (state, action) => {
+const usersReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
 

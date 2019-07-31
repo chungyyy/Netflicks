@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as session_util from './util/session_api_util';
+import * as session_action from './actions/session_actions';
+import configureStore from './store/store';
+import Root from './components/root';
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  window.signup = session_util.signup
-  window.login = session_util.login
-  window.logout = session_util.logout
-
+  const store = configureStore();
   const root = document.getElementById("root");
-  ReactDOM.render(<h1>NETFLICKS WORK IN PROGRESS</h1>, root);
+
+  // TESTING
+  window.signup = session_action.signup
+  window.login = session_action.login
+  window.logout = session_action.logout
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+
+  ReactDOM.render(<Root store={store}/>, root);
+
 });
