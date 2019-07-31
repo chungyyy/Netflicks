@@ -4,11 +4,10 @@ import { Link, Redirect } from 'react-router-dom';
 const Greeting = (props) => {
   const sessionLinks = () => {
     return (
-      <nav className="signup-login">
+      <div className="signup-login-div">
         <Link to="/login">Login</Link>
         <Link to="signup">SignUp</Link>
-
-      </nav>
+      </div>
     );
   };
 

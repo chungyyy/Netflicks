@@ -9,6 +9,10 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+<script type="text/javascript">
+  window.mainbgURL = "<%= image_url('nf_main_bg.jpg') %>"
+</script>
+
   <body>
     <%= yield %>
   </body>

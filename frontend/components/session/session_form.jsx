@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" 
+          <input type="email" 
             value={this.state.email} 
             onChange={this.update("email")} 
             required

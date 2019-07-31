@@ -8,13 +8,10 @@ import { AuthRoute } from '../util/route_util';
 
 const App = () => {
   return (
-    <div>
-      <nav className="nf-login-header">
-        <Link to="/" className="header-link">
-          <h1>NETFLICKS HEADER - WORK IN PROGRESS</h1> 
-        </Link>
-        <GreetingContainer />
-      </nav>
+    <div className="p-img-main-bg">
+      <h3>netflicks work in progress</h3>
+      <GreetingContainer />
+      {/* <img className="img-main-bg" src={window.mainbgURL} alt=""/> */}
 
       {/* TODO add protectedroute to util and make /browse work */}
       <Switch>
