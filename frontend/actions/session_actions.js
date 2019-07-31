@@ -6,17 +6,28 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const login = (user) => dispatch => {
   return session_util.login(user)
-    .then(user => dispatch(receiveCurrentUser(user)));
+    .then(user => dispatch(receiveCurrentUser(user)))
+    .fail((errors) => {
+      dispatch(receiveErrors(errors))
+    });;
 };
 
 export const logout = () => dispatch => {
   return session_util.logout()
-    .then(() => dispatch(logoutCurrentUser()));
+    .then(() => dispatch(logoutCurrentUser()))
+    .fail((errors) => {
+      dispatch(receiveErrors(errors))
+    });
 };
 
 export const signup = (user) => dispatch => {
   return session_util.signup(user)
-    .then(user => dispatch(receiveCurrentUser(user)));
+    .then(user => {
+      dispatch(receiveCurrentUser(user))
+    })
+    .fail((errors) => {
+      dispatch(receiveErrors(errors))
+    });
 };
 
 const receiveCurrentUser = (currentUser) => {
