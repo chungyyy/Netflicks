@@ -7,6 +7,7 @@ const Greeting = (props) => {
       <nav className="signup-login">
         <Link to="/login">Login</Link>
         <Link to="signup">SignUp</Link>
+
       </nav>
     );
   };
@@ -14,7 +15,10 @@ const Greeting = (props) => {
   const mainLink = () => {
     return (
       // <Redirect to="/browse" />
-      <h3>you're signed in</h3>
+      <div>
+        <h3>you're signed in</h3>
+        <button onClick={props.logout}>Log Out</button> 
+      </div>
     );
   };
 
