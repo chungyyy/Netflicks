@@ -12,16 +12,21 @@ const Greeting = (props) => {
   const sessionLinks = () => {
     return (
       <div className="basic-layout">
-        {/* <img className="img-main-bg" src={window.mainbgURL} /> */}
-        <div className="bg-gradient"></div>
-        <div className="signup-basic-header">
-          <a className="nf-logo">NETFLICKS</a>
-          <a className="b-nf-logo" href="#/login">Log In</a>
-          {/* <Link to="signup">SignUp</Link> */}
-        </div>
-        <div className="">
-          <AuthRoute exact path="/login" component={LoginContainer} />
-          <AuthRoute exact path="/signup" component={SignupContainer} />
+        <div className="bg-gradient">
+          <div className="signup-basic-header">
+            <img className="nf-logo" src={window.nflogoURL} />
+            <a className="b-nf-logo" href="#/login">Log In</a>
+            {/* <Link to="signup">SignUp</Link> */}
+          </div>
+          <div className="splash-mid-wrapper">
+            <div className="splash-text">
+              <h1 className="splash-pitch">See what's next.</h1>
+              <p className="splash-pitch-2">WATCH ANYWHERE. CANCEL ANYTIME.</p>
+              <button className="splash-button" type="submit">
+                <span>DEMO LOGIN</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -29,12 +34,7 @@ const Greeting = (props) => {
 
   const mainLink = () => {
     return (
-      // <Redirect to="/browse" />
-      <div>
-        <h3>netflicks work in progress</h3>
-        <h3>you're signed in</h3>
-        <button onClick={props.logout}>Log Out</button> 
-      </div>
+      <Redirect to="/browse" />
     );
   };
 

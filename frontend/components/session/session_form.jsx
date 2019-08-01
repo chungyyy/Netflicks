@@ -28,19 +28,21 @@ class SessionForm extends React.Component {
   render() {
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="email" 
-            value={this.state.email} 
-            onChange={this.update("email")} 
-            required
-          />
-          <input type="password" 
-            value={this.state.password} 
-            onChange={this.update("password")} 
-            required
-          />
-          <input type="submit" value={this.props.formType}/>
-        </form>
+        <div className="bg-gradient">
+          <form onSubmit={this.handleSubmit}>
+            <input type="email" 
+              value={this.state.email} 
+              onChange={this.update("email")} 
+              required
+            />
+            <input type="password" 
+              value={this.state.password} 
+              onChange={this.update("password")} 
+              required
+            />
+            <input type="submit" value={this.props.formType}/>
+          </form>
+        </div>
       </div>
     );
   }
