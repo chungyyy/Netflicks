@@ -31,10 +31,10 @@ const Greeting = (props) => {
                 <span>DEMO LOGIN</span>
               </button>
             </div>
-            <div class="splash-footer">
-              
-            </div>
           </div>
+        </div>
+        <div className="splash-footer">
+          {/* TODO */}
         </div>
       </div>
     );

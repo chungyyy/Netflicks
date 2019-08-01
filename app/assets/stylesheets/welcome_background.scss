@@ -9,7 +9,7 @@ body {
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0;
+  bottom: -2px;
   position: absolute;
   background: rgba(0,0,0,.5);
   background-image: linear-gradient(0deg,rgba(0, 0, 0, 0) 50%,rgba(0,0,0,.6) 100%),
@@ -116,5 +116,8 @@ body {
 }
 
 .splash-footer {
-  
+  position: absolute;
+  bottom: -2px;
+  width: 100%;
+  background-color: #141414;
 }

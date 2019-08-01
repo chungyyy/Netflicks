@@ -17,8 +17,8 @@
 }
 .session-form-ctn {
   width: 450px;
-  min-height: 660px;
-  padding: 60px 68px 40px;
+  min-height: 600px; // 660 maybe
+  padding: 60px 68px 60px;
   margin-bottom: 90px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -65,10 +65,8 @@
   border: 0;
   background: #e50914;
   color: white;
-}
-
-.input-button:focus {
-  outline: none;
+  padding: 16px 16px 16px 16px;
+  letter-spacing: 0.1px;
 }
 
 .input-button:hover {
@@ -83,3 +81,18 @@
   margin-top: 0;
 }
 
+.session-signup-space {
+  border-bottom: 0;
+  color: white;
+  margin-top: 60%;
+}
+
+.signup-now {
+  color: #737373;
+  font-weight: 500;
+}
+
+.signup-now .link-signup-now {
+  margin-left: 4px;
+  color: white;
+}

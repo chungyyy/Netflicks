@@ -26,6 +26,26 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const signUpLink = () => {
+      if (this.props.formType === "Sign In") {
+        return (
+          <div className="signup-now">
+            New to Netflicks?
+              <Link to="/signup" className="link-signup-now">Sign up now</Link>
+            .
+          </div>
+        )
+      } else {
+        return (
+          <div className="signup-now">
+            You know you want to.
+            <Link to="/" className="link-signup-now">Back to home</Link>
+            .
+          </div>
+        )
+      };
+    }
+
     return(
       <div>
         <div className="bg-gradient">
@@ -51,6 +71,8 @@ class SessionForm extends React.Component {
               <div className="input-field-separator-2"></div>
               <input className="input-button" type="submit" value={this.props.formType}/>
             </form>
+            <div className="session-signup-space"></div>
+            {signUpLink()}
           </div>
         </div>
       </div>
