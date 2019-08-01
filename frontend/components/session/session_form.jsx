@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -29,19 +29,29 @@ class SessionForm extends React.Component {
     return(
       <div>
         <div className="bg-gradient">
-          <form onSubmit={this.handleSubmit}>
-            <input type="email" 
-              value={this.state.email} 
-              onChange={this.update("email")} 
-              required
-            />
-            <input type="password" 
-              value={this.state.password} 
-              onChange={this.update("password")} 
-              required
-            />
-            <input type="submit" value={this.props.formType}/>
-          </form>
+          <div className="session-basic-header">
+            <Link to="/"><img className="nf-logo-2" src={window.nflogoURL} /></Link>
+          </div>
+          <div className="session-form-ctn">
+            <form className="session-form" onSubmit={this.handleSubmit}>
+              <h1 className="session-h1">{this.props.formType}</h1>
+              <input className="input-field" type="email" 
+                value={this.state.email} 
+                onChange={this.update("email")} 
+                required
+                placeholder="Email"
+              />
+              <div className="input-field-separator"></div>
+              <input className="input-field" type="password" 
+                value={this.state.password} 
+                onChange={this.update("password")} 
+                required
+                placeholder="Password"
+              />
+              <div className="input-field-separator-2"></div>
+              <input className="input-button" type="submit" value={this.props.formType}/>
+            </form>
+          </div>
         </div>
       </div>
     );

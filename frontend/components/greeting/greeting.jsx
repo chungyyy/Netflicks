@@ -10,21 +10,29 @@ import SignupContainer from '../session/signup_form_container';
 
 const Greeting = (props) => {
   const sessionLinks = () => {
+    const demoLogin = () => {
+      return props.login({
+        email: 'max@aol.com',
+        password: 123456,
+      });
+    }
     return (
       <div className="basic-layout">
         <div className="bg-gradient">
-          <div className="signup-basic-header">
-            <img className="nf-logo" src={window.nflogoURL} />
-            <a className="b-nf-logo" href="#/login">Log In</a>
-            {/* <Link to="signup">SignUp</Link> */}
+          <div className="greeting-basic-header">
+            <Link to="/"><img className="nf-logo" src={window.nflogoURL} /></Link>
+            <Link className="b-nf-logo" to="login"><span>Sign In</span></Link>
           </div>
           <div className="splash-mid-wrapper">
             <div className="splash-text">
-              <h1 className="splash-pitch">See what's next.</h1>
+              <h1 className="splash-pitch">See what’s next.</h1>
               <p className="splash-pitch-2">WATCH ANYWHERE. CANCEL ANYTIME.</p>
-              <button className="splash-button" type="submit">
+              <button onClick={demoLogin} className="splash-button" type="submit">
                 <span>DEMO LOGIN</span>
               </button>
+            </div>
+            <div class="splash-footer">
+              
             </div>
           </div>
         </div>

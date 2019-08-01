@@ -5,10 +5,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-// .basic-layout {
-//   height: 100vh;
-// }
-
 .bg-gradient {
   left: 0;
   right: 0;
@@ -16,18 +12,19 @@ body {
   bottom: 0;
   position: absolute;
   background: rgba(0,0,0,.5);
-  background-image: linear-gradient(0deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%),
+  background-image: linear-gradient(0deg,rgba(0, 0, 0, 0) 50%,rgba(0,0,0,.6) 100%),
                     radial-gradient(50% 120%,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%);
 }
 
-.signup-basic-header {
-  margin-top: 10px;
+.greeting-basic-header {
+  margin: 0 auto;
   display: flex;
   position: relative;
   align-items: center;
-  height: 60px;
+  height: 90px;
   justify-content: flex-end;
   z-index: 1;
+  width: 100%;
 }
 
 .img-main-bg {
@@ -47,8 +44,10 @@ body {
   height: 61px;
   width: 180px;
   vertical-align: middle;
-  margin-right: 36vw;
   margin-top: 8px;
+  position: absolute;
+  top: 9%;
+  left: 44%;
 }
 
 .b-nf-logo {
@@ -62,6 +61,10 @@ body {
   border: 0px;
   color: white;
   background-color: #E50914;
+}
+
+.b-nf-logo:hover {
+    background: #f40612;
 }
 
 .splash-mid-wrapper {
@@ -95,4 +98,23 @@ body {
   color: white;
   background-color: #E50914;
   border: none;
+  border-radius: 2px;
+}
+
+.splash-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.085em #85050b;
+}
+
+.splash-button:hover {
+  cursor: pointer;
+  background: #f40612;
+}
+
+.splash-button:active {
+  background: #bb0a12;
+}
+
+.splash-footer {
+  
 }
