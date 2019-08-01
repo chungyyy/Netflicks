@@ -25,6 +25,15 @@ class SessionForm extends React.Component {
     };
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
+  renderErrors() {
+    const errors = this.props.errors.join(". ");
+    return errors
+  }
+
   render() {
     const signUpLink = () => {
       if (this.props.formType === "Sign In") {
@@ -68,6 +77,7 @@ class SessionForm extends React.Component {
                 required
                 placeholder="Password"
               />
+              <p className="session-errors">{this.renderErrors()}</p>
               <div className="input-field-separator-2"></div>
               <input className="input-button" type="submit" value={this.props.formType}/>
             </form>
