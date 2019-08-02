@@ -20,15 +20,15 @@ const Greeting = (props) => {
       <div className="basic-layout">
         <div className="bg-gradient">
           <div className="greeting-basic-header">
-            <Link to="/"><img className="nf-logo" src={window.nflogoURL} /></Link>
-            <Link className="b-nf-logo" to="login"><span>Sign In</span></Link>
+            <Link to="/" className="nf-logo"><img src={window.nflogoURL} /></Link>
+            <Link className="b-nf-logo" to="login">Sign In</Link>
           </div>
           <div className="splash-mid-wrapper">
             <div className="splash-text">
               <h1 className="splash-pitch">See what’s next.</h1>
               <p className="splash-pitch-2">WATCH ANYWHERE. CANCEL ANYTIME.</p>
               <button onClick={demoLogin} className="splash-button" type="submit">
-                <span>DEMO LOGIN</span>
+                DEMO LOGIN
               </button>
             </div>
           </div>

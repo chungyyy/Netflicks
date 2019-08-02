@@ -42,12 +42,16 @@ body {
 
 .nf-logo {
   height: 61px;
-  width: 180px;
-  vertical-align: middle;
-  margin-top: 8px;
+  width: 215px;
   position: absolute;
-  top: 9%;
-  left: 44%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.nf-logo img {
+  height: 61px;
+  width: 220px;
 }
 
 .b-nf-logo {
@@ -99,6 +103,7 @@ body {
   background-color: #E50914;
   border: none;
   border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.5);
 }
 
 .splash-button:focus {
