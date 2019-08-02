@@ -9,12 +9,14 @@ import MainContainer from './main/main_container';
 
 const App = () => {
   return (
-    <div className="p-img-main-bg">
+    <div className="app-mount">
       <Switch>
         <Route exact path="/" component={GreetingContainer} />
         <AuthRoute exact path="/login" component={LoginContainer} />
         <AuthRoute exact path="/signup" component={SignupContainer} />
-        <ProtectedRoute exact path="/browse" component={MainContainer} />
+        <div className="main-mount">
+          <ProtectedRoute exact path="/browse" component={MainContainer} />
+        </div>
         <Route path="/*" render={() => <Redirect to="/" />} /> 
       </Switch>
     </div>
