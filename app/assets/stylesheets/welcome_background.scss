@@ -1,8 +1,10 @@
 body {
-  background-color: black;
-  background-image: image-url('nf_main_bg.jpg');
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
+  background-color: black;
+  background-image: image-url('nf_main_bg.jpg');
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .bg-gradient {

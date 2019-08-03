@@ -13,4 +13,6 @@
 
 class Video < ApplicationRecord
   validates :title, :description, :maturity_rating, :year, presence: true
+
+  has_one_attached :video
 end
