@@ -4,7 +4,6 @@ import merge from 'lodash/merge';
 const videosReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
-
   switch (action.type) {
     case RECEIVE_ALL_VIDEOS:
       return action.videos;

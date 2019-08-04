@@ -1,0 +1,27 @@
+
+{
+  entities: {
+    users: {
+      1: {
+        id: 1,
+        username: 'breakfast'
+      }
+    }
+  },
+  session: {
+    id: 1
+  },
+  errors: {
+    session: []
+  }
+}
+
+    video: {
+      1: {
+        id: 1,
+        title: 'The Matrix'
+        year: 1999,
+        maturityRating: 'TV-MA',
+        description: 'What even is real?'
+        genreId: [1,2]
+      },

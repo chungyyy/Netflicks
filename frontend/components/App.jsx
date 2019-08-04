@@ -5,6 +5,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LoginContainer from './session/login_form_container';
 import SignupContainer from './session/signup_form_container';
 import MainContainer from './main/main_container';
+import Watch from './video/watch_container';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <AuthRoute exact path="/signup" component={SignupContainer} />
         <div className="main-mount">
           <ProtectedRoute exact path="/browse" component={MainContainer} />
+          <ProtectedRoute exact path="/watch/:video_id" component={Watch} />
         </div>
         <Route path="/*" render={() => <Redirect to="/" />} /> 
       </Switch>

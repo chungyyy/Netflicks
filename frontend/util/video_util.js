@@ -8,6 +8,6 @@ export const fetchVideos = () => {
 export const fetchVideo = (id) => {
   return $.ajax({
     method: 'GET',
-    url: `/api/video${id}`,
+    url: `/api/video/${id}`,
   });
 };

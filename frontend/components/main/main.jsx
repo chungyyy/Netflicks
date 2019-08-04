@@ -6,7 +6,21 @@ class Main extends React.Component {
     super(props)
   }
 
+  componentDidMount() {
+    this.props.fetchAllVideos();
+  };
+
   render() {
+    const videos = this.props.videos.map(video => {
+      return (
+        <ul>
+          <li>
+            <Link to={`/watch/${video.id}`}>{video.title}</Link>
+          </li>
+        </ul>
+      );
+    });
+
     return (
       <div className="index-ctn">
         <div className="index-header">
@@ -18,7 +32,8 @@ class Main extends React.Component {
           </div>
         </div>
         <div className="index-main">
-          <p>main - work in progress</p>
+          <p>Video Index - work in progress</p>
+          {videos}
           <button onClick={this.props.logout}>logout</button>
         </div>
         <div className="index-footer">

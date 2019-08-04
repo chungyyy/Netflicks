@@ -22,9 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  
-  ReactDOM.render(<Root store={store}/>, root);
-  
   // TESTING
   window.signup = session_action.signup
   window.login = session_action.login
@@ -32,4 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   // TESTING
+  
+  ReactDOM.render(<Root store={store}/>, root);
+  
 });
