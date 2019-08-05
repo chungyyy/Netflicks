@@ -22,22 +22,24 @@ class Main extends React.Component {
     });
 
     return (
-      <div className="index-ctn">
-        <div className="index-header">
-          <div className="index-subheader-1">
-            <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
+      <div className="main-mount">
+        <div className="index-ctn">
+          <div className="index-header">
+            <div className="index-subheader-1">
+              <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
+            </div>
+            <div className="index-subheader-1">
+              <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
+            </div>
           </div>
-          <div className="index-subheader-1">
-            <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
+          <div className="index-main">
+            <p>Video Index - work in progress</p>
+            {videos}
+            <button onClick={this.props.logout}>logout</button>
           </div>
-        </div>
-        <div className="index-main">
-          <p>Video Index - work in progress</p>
-          {videos}
-          <button onClick={this.props.logout}>logout</button>
-        </div>
-        <div className="index-footer">
-          {/* TODO */}
+          <div className="index-footer">
+            {/* TODO */}
+          </div>
         </div>
       </div>
     )

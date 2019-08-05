@@ -15,10 +15,8 @@ const App = () => {
         <Route exact path="/" component={GreetingContainer} />
         <AuthRoute exact path="/login" component={LoginContainer} />
         <AuthRoute exact path="/signup" component={SignupContainer} />
-        <div className="main-mount">
           <ProtectedRoute exact path="/browse" component={MainContainer} />
           <ProtectedRoute exact path="/watch/:video_id" component={Watch} />
-        </div>
         <Route path="/*" render={() => <Redirect to="/" />} /> 
       </Switch>
     </div>
