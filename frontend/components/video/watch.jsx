@@ -4,44 +4,69 @@ import { Link } from 'react-router-dom';
 class Watch extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       playing: true,
+      fullscreen: false,
     };
-    this.playVideo = this.playVideo.bind(this);
-    this.pauseVideo = this.pauseVideo.bind(this);
+
+    this.handlePlay = this.handlePlay.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleFullscreen = this.handleFullscreen.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchVideo(this.props.videoId);
     document.addEventListener('keydown', this.handleKeyPress);
+    document.addEventListener('keydown', this.handleKeyPress)
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
 
-  playVideo() {
-    this.setState({
-      playing: true,
-    });
-    this.refs.vidRef.play();
+  handlePlay() {
+    if (this.state.playing) {
+      this.setState({
+        playing: false,
+      });
+      this.refs.vidRef.pause();
+    } else {
+      this.setState({
+        playing: true,
+      });
+      this.refs.vidRef.play();
+    }
   }
 
-  pauseVideo() {
-    this.setState({
-      playing: false,
-    });
-    this.refs.vidRef.pause();
+  handleFullscreen() {
+    if (this.state.fullscreen) {
+      this.setState({
+        fullscreen: false,
+      });
+      document.exitFullscreen();
+    } else {
+      this.setState({
+        fullscreen: true,
+      });
+      this.refs.controlRef.requestFullscreen();
+    }
   }
 
   handleKeyPress(e) {
-    if (e.keyCode === 32) {
-      if (this.state.playing) {
-        this.pauseVideo();
-      } else {
-        this.playVideo();
-      }
+    switch (e.keyCode) {
+      case 32:
+        this.handlePlay();
+        break;
+
+      case 27:
+        if (this.state.fullscreen) {
+          this.handleFullscreen();
+        }
+        break;
+
+      default:
+        break;
     }
   };
 
@@ -51,13 +76,19 @@ class Watch extends React.Component {
     }
 
     const playPause = this.state.playing ? (
-      <i className="fas fa-pause" onClick={this.pauseVideo}></i>
+      <i className="fas fa-pause" onClick={this.handlePlay}></i>
     ) : (
-      <i className="fas fa-play" onClick={this.playVideo}></i>
+      <i className="fas fa-play" onClick={this.handlePlay}></i>
+    )
+
+    const fullscreenButton = this.state.fullscreen ? (
+      <i className="fas fa-compress" onClick={this.handleFullscreen}></i>
+    ) : (
+      <i className="fas fa-expand" onClick={this.handleFullscreen}></i>
     )
 
     return (
-      <div className="main-watch">
+      <div className="main-watch" ref ="controlRef">
         <div className="video-container">
           <video
             className="video"
@@ -75,9 +106,10 @@ class Watch extends React.Component {
           </div>
           <div className="bot-controls">
             {playPause}
+            <i className="fas fa-undo-alt"></i>
+            <i className="fas fa-redo-alt"></i>
             <h2 className="video-title">{this.props.video.title}</h2>
-            <i className="fas fa-compress"></i>
-            {/* <i class="far fa-square"></i> */}
+            {fullscreenButton}
           </div>
         </div>
       </div>
