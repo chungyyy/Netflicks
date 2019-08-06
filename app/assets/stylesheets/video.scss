@@ -20,7 +20,8 @@
   width: 100%;
   bottom: 0;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .video {
@@ -44,7 +45,7 @@
 .fa-play {
   font-size: 30px;
   color: white;
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 .fa-play:hover {
@@ -54,7 +55,7 @@
 .fa-pause {
   font-size: 30px;
   color: white;
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 .fa-pause:hover {
@@ -64,5 +65,13 @@
 .fa-compress {
   font-size: 30px;
   color: white;
-  right: 0;
+  margin-right: 30px;
+}
+
+.fa-compress:hover {
+  cursor: pointer;
+}
+
+.video-title {
+  color: white;
 }

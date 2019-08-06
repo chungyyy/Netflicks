@@ -36,7 +36,6 @@ class Watch extends React.Component {
   }
 
   handleKeyPress(e) {
-    console.log(e);
     if (e.keyCode === 32) {
       if (this.state.playing) {
         this.pauseVideo();
@@ -76,7 +75,9 @@ class Watch extends React.Component {
           </div>
           <div className="bot-controls">
             {playPause}
+            <h2 className="video-title">{this.props.video.title}</h2>
             <i className="fas fa-compress"></i>
+            {/* <i class="far fa-square"></i> */}
           </div>
         </div>
       </div>
