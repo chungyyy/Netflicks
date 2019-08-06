@@ -16,7 +16,7 @@
 
 .bot-controls {
   position: absolute;
-  height: 90px;
+  height: 80px;
   width: 100%;
   bottom: 0;
   display: flex;
@@ -73,8 +73,9 @@
 }
 
 .video-title {
-  width: 50%;
+  width: 65%;
   color: white;
+  min-width: 30%
 }
 
 .fa-expand {
@@ -106,4 +107,42 @@
 
 .fa-redo-alt:hover {
   cursor: pointer;
+}
+
+.fa-volume-up {
+  font-size: 30px;
+  color: white;
+  margin-left: 30px;
+  margin-right: 30px;
+  min-width: 40px;
+}
+
+.fa-volume-up:hover {
+  cursor: pointer;
+}
+
+.fa-volume-off {
+  font-size: 30px;
+  color: white;
+  margin-left: 30px;
+  margin-right: 30px;
+  min-width: 40px;
+}
+
+.fa-volume-off:hover {
+  cursor: pointer;
+}
+
+.click-area {
+  height: 100%;
+  width: 100%;
+}
+
+.top-controls {
+  position: absolute;
+}
+
+.left-controls {
+  display: flex;
+  flex-wrap: nowrap;
 }

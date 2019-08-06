@@ -8,16 +8,21 @@ class Watch extends React.Component {
     this.state = {
       playing: true,
       fullscreen: false,
+      muted: false,
     };
 
     this.handlePlay = this.handlePlay.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleFullscreen = this.handleFullscreen.bind(this);
+    this.handleMute = this.handleMute.bind(this);
+    this.forwards = this.forwards.bind(this);
+    this.backwards = this.backwards.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchVideo(this.props.videoId);
     document.addEventListener('keydown', this.handleKeyPress);
+    document.addEventListener('onMouseOver', this.showControls);
   }
 
   componentWillUnmount() {
@@ -38,12 +43,35 @@ class Watch extends React.Component {
     }
   }
 
-  handleFullscreen() {
+  forwards() {
+    this.refs.vidRef.currentTime += 10;
+  }
+
+  backwards() {
+    this.refs.vidRef.currentTime -= 10;
+  }
+
+  handleMute() {
+    if (this.state.muted) {
+      this.setState({
+        muted: false,
+      });
+      this.refs.vidRef.volume = 0.5;
+    } else {
+      this.setState({
+        muted: true,
+      });
+      this.refs.vidRef.volume = 0;
+    }
+  }
+
+  handleFullscreen(e) {
     if (this.state.fullscreen) {
       this.setState({
         fullscreen: false,
       });
       document.exitFullscreen();
+
     } else {
       this.setState({
         fullscreen: true,
@@ -87,12 +115,19 @@ class Watch extends React.Component {
       <i className="fas fa-expand" onClick={this.handleFullscreen}></i>
     )
 
+    const audioButton = this.state.muted ? (
+      <i className="fas fa-volume-off" onClick={this.handleMute}></i>
+      ) : (
+      <i className="fas fa-volume-up" onClick={this.handleMute}></i>
+    )
+
     return (
       <div className="main-watch" ref ="controlRef">
         <div className="video-container">
           <video
             className="video"
             ref="vidRef"
+            preload="true"
             autoPlay
             // src={this.props.video.video_clip}
             src="http://media.w3.org/2010/05/bunny/movie.mp4"
@@ -104,12 +139,14 @@ class Watch extends React.Component {
           <div className="top-controls">
             <Link to="/browse"><i className="fas fa-arrow-left"></i></Link>
           </div>
-            <div className="bot-controls">
-              <div className="left-controls">
-                {playPause}
-                <i className="fas fa-undo-alt"></i>
-                <i className="fas fa-redo-alt"></i>
-              </div>
+          <div className="click-area" onClick={this.handlePlay}></div>
+          <div className="bot-controls">
+            <div className="left-controls">
+              {playPause}
+              <i className="fas fa-undo-alt" onClick={this.backwards}></i>
+              <i className="fas fa-redo-alt" onClick={this.forwards}></i>
+              {audioButton}
+            </div>
             <h2 className="video-title">{this.props.video.title}</h2>
             {fullscreenButton}
           </div>
