@@ -14,4 +14,4 @@ require 'open-uri'
 # captain_marvel.movie.attach(io: open('https://s3.amazonaws.com/nextup-seed/Marvel+Studios+Captain+Marvel+-+Official+Trailer.mp4'), filename: 'Captain Marveltrailer.mp4')
 # watchmen2 = Video.create(title: "watchmen_sample", description: "sample", maturity_rating: "R", year: 2009)
 watchmen = Video.find(3)
-watchmen.video.attach(io: open('https://s3://netflicks-dev/short_watchmen_trailer.mp4'), filename: 'short_watchmen_trailer.mp4')
+watchmen.video.attach(io: open('https://netflicks-dev.s3.amazonaws.com/short_watchmen_trailer.mp4'), filename: 'short_watchmen_trailer.mp4')
