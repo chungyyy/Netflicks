@@ -1,0 +1,68 @@
+.video-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+}
+
+.watch-buttons {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.bot-controls {
+  position: absolute;
+  height: 90px;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+}
+
+.main-watch {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+
+.fa-arrow-left {
+  font-size: 35px;
+  color: white;
+  margin: 40px 0 0 40px;
+}
+
+.fa-play {
+  font-size: 30px;
+  color: white;
+  margin-left: 40px;
+}
+
+.fa-play:hover {
+  cursor: pointer;
+}
+
+.fa-pause {
+  font-size: 30px;
+  color: white;
+  margin-left: 40px;
+}
+
+.fa-pause:hover {
+  cursor: pointer;
+}
+
+.fa-compress {
+  font-size: 30px;
+  color: white;
+  right: 0;
+}

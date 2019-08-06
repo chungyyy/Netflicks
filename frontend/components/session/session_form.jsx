@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
     }
 
     return(
-      <div>
+      <div className="basic-layout">
         <div className="bg-gradient">
           <div className="session-basic-header">
             <Link to="/"><img className="nf-logo-2" src={window.nflogoURL} /></Link>
