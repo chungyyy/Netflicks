@@ -18,7 +18,6 @@ class Watch extends React.Component {
   componentDidMount() {
     this.props.fetchVideo(this.props.videoId);
     document.addEventListener('keydown', this.handleKeyPress);
-    document.addEventListener('keydown', this.handleKeyPress)
   }
 
   componentWillUnmount() {

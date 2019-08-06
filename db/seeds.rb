@@ -9,6 +9,7 @@ require 'open-uri'
 
 # User.destroy_all
 # Video.destroy_all
+# ActiveRecord::Base.connection.reset_pk_sequence!('videos')
 
 # matrix = Video.new(title: "", description: "", maturity_rating: "", year: 1999)
 # captain_marvel.movie.attach(io: open('https://s3.amazonaws.com/nextup-seed/Marvel+Studios+Captain+Marvel+-+Official+Trailer.mp4'), filename: 'Captain Marveltrailer.mp4')
