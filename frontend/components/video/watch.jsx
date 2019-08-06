@@ -55,6 +55,7 @@ class Watch extends React.Component {
 
   handleKeyPress(e) {
     switch (e.keyCode) {
+      case 13:
       case 32:
         this.handlePlay();
         break;
@@ -95,7 +96,7 @@ class Watch extends React.Component {
             ref="vidRef"
             autoPlay
             // src={this.props.video.video_clip}
-            src="https://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+            src="http://media.w3.org/2010/05/bunny/movie.mp4"
             >
           </video>
           <br/>
@@ -104,10 +105,12 @@ class Watch extends React.Component {
           <div className="top-controls">
             <Link to="/browse"><i className="fas fa-arrow-left"></i></Link>
           </div>
-          <div className="bot-controls">
-            {playPause}
-            <i className="fas fa-undo-alt"></i>
-            <i className="fas fa-redo-alt"></i>
+            <div className="bot-controls">
+              <div className="left-controls">
+                {playPause}
+                <i className="fas fa-undo-alt"></i>
+                <i className="fas fa-redo-alt"></i>
+              </div>
             <h2 className="video-title">{this.props.video.title}</h2>
             {fullscreenButton}
           </div>
