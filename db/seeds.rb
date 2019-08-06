@@ -17,4 +17,4 @@ require 'open-uri'
 # watchmen.video.attach(io: open('https://netflicks-dev.s3.amazonaws.com/short_watchmen_trailer.mp4'), filename: 'short_watchmen_trailer.mp4')
 
 bunnyMovie = Video.create!(title: "Bunny Movie", description: "Bunny Movie", maturity_rating: "G", year: 2222)
-bunnyMovie.video.attach(io: open('http://media.w3.org/2010/05/bunny/movie.mp4', filename: 'movie.mp4'))
+bunnyMovie.video.attach(io: open('http://media.w3.org/2010/05/bunny/movie.mp4'), filename: 'movie.mp4')
