@@ -9,12 +9,16 @@ class Watch extends React.Component {
       playing: true,
       fullscreen: false,
       muted: false,
+      prevVolume: 0.5,
+      volume: 0.5,
+      currentTime: 0,
     };
 
     this.handlePlay = this.handlePlay.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleFullscreen = this.handleFullscreen.bind(this);
     this.handleMute = this.handleMute.bind(this);
+    this.handleVolume = this.handleVolume.bind(this);
     this.forwards = this.forwards.bind(this);
     this.backwards = this.backwards.bind(this);
   }
@@ -54,13 +58,33 @@ class Watch extends React.Component {
     if (this.state.muted) {
       this.setState({
         muted: false,
+        volume: this.state.prevVolume,
       });
-      this.refs.vidRef.volume = 0.5;
+      this.refs.vidRef.volume = this.state.prevVolume;
     } else {
       this.setState({
         muted: true,
+        volume: 0,
       });
       this.refs.vidRef.volume = 0;
+    }
+  }
+
+  handleVolume(e) {
+    this.setState({
+      volume: e.target.value,
+      prevVolume: e.target.value,
+    });
+    this.refs.vidRef.volume = this.state.prevVolume;
+
+    if (this.refs.vidRef.volume === 0) {
+      this.setState({
+        muted: true,
+      });
+    } else {
+      this.setState({
+        muted: false,
+      });
     }
   }
 
@@ -120,6 +144,12 @@ class Watch extends React.Component {
       <i className="fas fa-volume-up" onClick={this.handleMute}></i>
     )
 
+    const audioPercentage = this.state.volume * 100;
+
+    const audioColor = {
+      background: `linear-gradient(to right, #E50914 0%, #E50914 ${audioPercentage}%, #666666 ${audioPercentage}%, #666666 ${(1 - this.state.volume) * 100}%)`
+    };
+
     return (
       <div className="main-watch" ref ="controlRef">
         <div className="video-container">
@@ -128,7 +158,8 @@ class Watch extends React.Component {
             ref="vidRef"
             preload="true"
             autoPlay
-            src={this.props.video.video_clip}
+            // src={this.props.video.video_clip}
+            src='http://media.w3.org/2010/05/bunny/movie.mp4'
             >
           </video>
           <br/>
@@ -143,7 +174,22 @@ class Watch extends React.Component {
               {playPause}
               <i className="fas fa-undo-alt" onClick={this.backwards}></i>
               <i className="fas fa-redo-alt" onClick={this.forwards}></i>
-              {audioButton}
+              <div className="audio-container">
+                {audioButton}
+                <div className="audio-bar-container">
+                  <input 
+                    className="audio-slider"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    style={audioColor}
+                    value={this.state.volume}
+                    onClick={this.handleVolume}
+                    onChange={this.handleVolume}
+                  />
+                </div>
+              </div>
             </div>
             <h2 className="video-title">{this.props.video.title}</h2>
             {fullscreenButton}
