@@ -13,11 +13,9 @@ class Main extends React.Component {
   render() {
     const videos = this.props.videos.map(video => {
       return (
-        <ul>
-          <li>
+          <li key={video.id}>
             <Link to={`/watch/${video.id}`}>{video.title}</Link>
           </li>
-        </ul>
       );
     });
 
@@ -34,7 +32,9 @@ class Main extends React.Component {
           </div>
           <div className="index-main">
             <p>Video Index - work in progress</p>
-            {videos}
+            <ul>
+              {videos}
+            </ul>
             <button onClick={this.props.logout}>logout</button>
           </div>
           <div className="index-footer">
