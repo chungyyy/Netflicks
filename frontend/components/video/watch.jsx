@@ -130,8 +130,7 @@ class Watch extends React.Component {
         fullscreen: false,
       });
       document.exitFullscreen();
-
-    } else {
+    } else if (!this.state.fullscreen) {
       this.setState({
         fullscreen: true,
       });
@@ -164,15 +163,15 @@ class Watch extends React.Component {
       case 32:
         this.handlePlay();
         break;
-
-      case 70:
-        this.handleFullscreen();
-      case 27:
-        if (this.state.fullscreen) {
-          this.handleFullscreen();
-        }
+      case 77:
+        this.handleMute();
         break;
-
+      case 37:
+        this.backwards();
+        break;
+      case 39:
+        this.forwards();
+        break;
       default:
         break;
     }
