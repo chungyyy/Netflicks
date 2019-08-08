@@ -13,6 +13,8 @@ class Watch extends React.Component {
       volume: 0.5,
       currentTime: 0,
       duration: 0,
+      showAudio: false,
+      showControls: false,
     };
 
     this.handlePlay = this.handlePlay.bind(this);
@@ -24,6 +26,10 @@ class Watch extends React.Component {
     this.forwards = this.forwards.bind(this);
     this.backwards = this.backwards.bind(this);
     this.checkTime = this.checkTime.bind(this);
+    this.AudioSliderOff = this.AudioSliderOff.bind(this);
+    this.AudioSliderOn = this.AudioSliderOn.bind(this);
+    this.handleControls = this.handleControls.bind(this);
+    
   }
 
   componentDidMount() {
@@ -31,10 +37,26 @@ class Watch extends React.Component {
     this.counter = setInterval(this.checkTime, 1000);
     document.addEventListener('keydown', this.handleKeyPress);
   }
-
+  
+  handleControls() {
+    this.setState({
+      showControls: true,
+    });
+    if (this.state.showControls) {
+      clearTimeout(this.controlTimeOut);
+      this.controlTimeOut = setTimeout(() => {
+        console.log("hi");
+        this.setState({
+          showControls: false,
+        });
+      }, 3000);
+    }
+  }
+  
   componentWillUnmount() {
     clearInterval(this.counter);
     document.removeEventListener('keydown', this.handleKeyPress);
+    clearTimeout(this.controlTimeOut);
   }
 
   checkTime() {
@@ -117,6 +139,18 @@ class Watch extends React.Component {
     }
   }
 
+  AudioSliderOff() {
+    this.setState({
+      showAudio: false,
+    });
+  }
+
+  AudioSliderOn() {
+    this.setState({
+      showAudio: true,
+    });
+  }
+
   handleTime(e) {
     this.setState({
       currentTime: e.target.value,
@@ -131,6 +165,8 @@ class Watch extends React.Component {
         this.handlePlay();
         break;
 
+      case 70:
+        this.handleFullscreen();
       case 27:
         if (this.state.fullscreen) {
           this.handleFullscreen();
@@ -183,9 +219,13 @@ class Watch extends React.Component {
     )
 
     const audioButton = this.state.muted ? (
-      <i className="fas fa-volume-off" onClick={this.handleMute}></i>
+      <i className="fas fa-volume-off" 
+        onClick={this.handleMute} 
+      ></i>
       ) : (
-      <i className="fas fa-volume-up" onClick={this.handleMute}></i>
+      <i className="fas fa-volume-up" 
+        onClick={this.handleMute} 
+      ></i>
     )
 
     const audioPercentage = this.state.volume * 100;
@@ -202,8 +242,46 @@ class Watch extends React.Component {
 
     const remainingPlayTime = this.timeRemaining();
 
+    const trackSeeker = this.state.showAudio ? (
+      null
+    ) : (
+      <div className="track-seeker-container">
+        <input
+          className="video-slider"
+          type="range"
+          min="0"
+          max={this.state.duration}
+          step="0.1"
+          style={videoColor}
+          value={this.state.currentTime}
+          onClick={this.handleTime}
+          onChange={this.handleTime}
+        />
+        <span className="time-remaining">{remainingPlayTime}</span>
+      </div>
+    )
+
+    const audioSlider = this.state.showAudio ? (
+      <div className="audio-bar-container">
+        <input
+          className="audio-slider"
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          style={audioColor}
+          value={this.state.volume}
+          onClick={this.handleVolume}
+          onChange={this.handleVolume}
+          onMouseLeave={this.AudioSliderOff}
+        />
+      </div>
+    ) : (
+      null
+    )
+
     return (
-      <div className="main-watch" ref ="controlRef">
+      <div className="main-watch" onMouseMove={this.handleControls} ref ="controlRef">
         <div className="video-container">
           <video
             className="video"
@@ -216,45 +294,24 @@ class Watch extends React.Component {
           </video>
           <br/>
         </div>
-        <div className="watch-buttons">
+        <div className={this.state.showControls ? "watch-buttons" : "hide-watch-buttons"}>
           <div className="top-controls">
             <Link to="/browse"><i className="fas fa-arrow-left"></i></Link>
           </div>
           <div className="click-area" onClick={this.handlePlay}></div>
           <div className="bot-controls">
-            <div className="track-seeker-container">
-              <input
-                className="video-slider"
-                type="range"
-                min="0"
-                max={this.state.duration}
-                step="1"
-                style={videoColor}
-                value={this.state.currentTime}
-                onClick={this.handleTime}
-                onChange={this.handleTime}
-              />
-              <span className="time-remaining">{remainingPlayTime}</span>
-            </div>
+            {trackSeeker}
             <div className="left-controls">
               {playPause}
               <i className="fas fa-undo-alt" onClick={this.backwards}></i>
               <i className="fas fa-redo-alt" onClick={this.forwards}></i>
-              <div className="audio-container">
+              <div 
+                className="audio-container"
+                onMouseEnter={this.AudioSliderOn}
+                onMouseLeave={this.AudioSliderOff}
+              >
                 {audioButton}
-                <div className="audio-bar-container">
-                  <input 
-                    className="audio-slider"
-                    type="range"
-                    min="0"
-                    max="1"
-                    step="0.02"
-                    style={audioColor}
-                    value={this.state.volume}
-                    onClick={this.handleVolume}
-                    onChange={this.handleVolume}
-                  />
-                </div>
+                {audioSlider}
               </div>
             </div>
             <h3 className="video-title">{this.props.video.title}</h3>

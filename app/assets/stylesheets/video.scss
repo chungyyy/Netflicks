@@ -7,11 +7,16 @@
 
 .watch-buttons {
   display: flex;
+  z-index: 0;
   height: 100%;
   width: 100%;
   position: absolute;
   overflow: hidden;
   justify-content: space-between;
+}
+
+.hide-watch-buttons {
+  display: none;
 }
 
 .bot-controls {
@@ -42,6 +47,11 @@
   margin: 40px 0 0 40px;
 }
 
+.fa-arrow-left:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+
 .fa-play {
   font-size: 30px;
   color: white;
@@ -50,6 +60,8 @@
 
 .fa-play:hover {
   cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .fa-pause {
@@ -60,6 +72,8 @@
 
 .fa-pause:hover {
   cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .fa-compress {
@@ -70,12 +84,16 @@
 
 .fa-compress:hover {
   cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .video-title {
+  // position: absolute;
   width: 65%;
   color: white;
-  min-width: 30%
+  min-width: 30%;
+  margin-left: 100px;
 }
 
 .fa-expand {
@@ -86,6 +104,8 @@
 
 .fa-expand:hover {
   cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .fa-undo-alt {
@@ -97,6 +117,8 @@
 
 .fa-undo-alt:hover {
   cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .fa-redo-alt {
@@ -107,6 +129,8 @@
 
 .fa-redo-alt:hover {
   cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .fa-volume-up {
@@ -115,10 +139,13 @@
   margin-left: 30px;
   margin-right: 30px;
   min-width: 40px;
+  min-height: 40px;
 }
 
 .fa-volume-up:hover {
   cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .fa-volume-off {
@@ -127,10 +154,14 @@
   margin-left: 30px;
   margin-right: 30px;
   min-width: 40px;
+  min-height: 40px;
+  // padding: 10px;
 }
 
 .fa-volume-off:hover {
   cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .click-area {
@@ -148,7 +179,10 @@
 }
 
 .audio-container {
-  position: relative;
+  position: absolute;
+  left: 267px;
+  top: -9px;
+  padding-top: 20px;
   box-sizing: border-box;
 }
 
@@ -157,6 +191,8 @@
   outline: none;
   height: 1vh;
   width: 95px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   box-sizing: border-box;
   cursor: pointer;
 }
@@ -170,12 +206,8 @@
 }
 
 .audio-slider::-webkit-slider-thumb:hover {
-  -webkit-appearance: none;
-  background: #E50914;
-  transition-duration: 400ms;
-  height: 18px;
-  width: 18px;
-  border-radius: 50px;
+  transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .audio-bar-container {
@@ -201,12 +233,11 @@
   position: absolute;
   width: 100%;
   height: 25px;
-  bottom: 80px;
+  bottom: 90px;
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
-  padding-left: 30px;
-  cursor: pointer;
+  padding-left: 30px; 
 }
 
 .video-slider {
@@ -218,16 +249,10 @@
   cursor: pointer;
 }
 
-// .video-slider:hover {
-//   -webkit-appearance: none;
-//   outline: none;
-//   height: 5px;
-//   width: 90vw;
-//   margin-right: 10%;
-//   box-sizing: border-box;
-//   cursor: pointer;
-//   transition-duration: 100ms;
-// }
+.video-slider:hover {
+  height: 7px;
+  transition: 0.1s ease-in;
+}
 
 .video-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
