@@ -20,26 +20,32 @@ class Main extends React.Component {
     });
 
     return (
-      <div className="main-mount">
+      <div className="main-bg">
         <div className="index-ctn">
-          <div className="index-header">
-            <div className="index-subheader-1">
-              <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
-            </div>
-            <div className="index-subheader-1">
-              <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
+
+          <div className="top-main">
+            <div className="index-header">
+              <div className="index-subheader-1">
+                <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
+              </div>
+              <div className="index-subheader-1">
+                <Link to="/browse" className=""><img src={window.profileURL} /></Link>
+              </div>
             </div>
           </div>
-          <div className="index-main">
-            <p>Video Index - work in progress</p>
+
+          <div className="main-view">
+            <p>Greatest index page ever seen.</p>
             <ul>
               {videos}
             </ul>
             <button onClick={this.props.logout}>logout</button>
           </div>
+
           <div className="index-footer">
             {/* TODO */}
           </div>
+
         </div>
       </div>
     )

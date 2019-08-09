@@ -1,15 +1,29 @@
 .index-ctn {
   color: red;
   font-size: 50px;
+  height: 500px;
+  outline: 1px solid red;
 }
 
 .index-ctn p {
   margin: 0;
 }
 
-.main-mount {
+.top-main {
+  top: 0;
+  position: sticky;
+}
+
+.main-view {
+  position: relative;
+  min-height: 1000px;
+  z-index: 0;
+}
+
+.main-bg {
   background-color: #141414;
   height: 100vh;
+  overflow: hidden;
 }
 
 .index-header {

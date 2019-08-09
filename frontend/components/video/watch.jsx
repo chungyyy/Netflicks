@@ -45,7 +45,6 @@ class Watch extends React.Component {
     if (this.state.showControls) {
       clearTimeout(this.controlTimeOut);
       this.controlTimeOut = setTimeout(() => {
-        console.log("hi");
         this.setState({
           showControls: false,
         });
