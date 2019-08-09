@@ -1,0 +1,27 @@
+.rowContainer {
+  display: flex;
+  position: relative;
+  padding: 0 4%;
+}
+
+.rowItem {
+  background: pink;
+  margin: 0 2px;
+  text-align: center;
+  height: 250px;
+  width: 300px;
+  transition: transform 400ms ease 50ms;
+}
+
+.rowContainer:hover .rowItem {
+  transform: translateX(-25%);
+}
+
+.rowItem:hover ~ .rowItem {
+  transform: translateX(25%);
+}
+
+#rowItem:hover {
+  transform: scale(1.5);
+}
+

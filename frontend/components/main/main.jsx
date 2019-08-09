@@ -1,4 +1,5 @@
 import React from 'react';
+import VideoRow from './video_row';
 import { Link, withRouter } from 'react-router-dom';
 
 class Main extends React.Component {
@@ -41,7 +42,7 @@ class Main extends React.Component {
             </ul>
             <button onClick={this.props.logout}>logout</button>
           </div>
-
+          <VideoRow />
           <div className="index-footer">
             {/* TODO */}
           </div>
