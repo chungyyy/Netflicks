@@ -9,9 +9,28 @@
   margin: 0;
 }
 
+.static-image {
+  height: auto;
+  width: 100%;
+}
+
 .top-main {
+  position: absolute;
+  background-color: transparent;
+  z-index: 2;
   top: 0;
-  position: sticky;
+  left: 0;
+  right: 0;
+}
+
+.top-main-pinned {
+  position: fixed;
+  background-color: #141414;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: background-color .4s;
 }
 
 .main-view {
@@ -21,6 +40,7 @@
 }
 
 .main-bg {
+  position: relative;
   background-color: #141414;
   height: 1000vh;
   overflow: hidden;
@@ -28,7 +48,7 @@
 
 .index-header {
   display: flex;
-  background-color: #2c2727;
+  background-color: transparent;
   justify-content: space-between;
   position: relative;
   height: 70px;

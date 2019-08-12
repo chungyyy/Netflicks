@@ -5,10 +5,30 @@ import { Link, withRouter } from 'react-router-dom';
 class Main extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      initialScrollPos: 0,
+      headerPinned: false,
+    };
+
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchAllVideos();
+    document.addEventListener("scroll", this.handleScroll);
+  };
+
+  componentWillUnmount() {
+    document.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll() {
+    const scrollPos = window.pageYOffset;
+    const headerPinned = scrollPos > this.state.initialScrollPos;
+    this.setState({
+      headerPinned,
+    });
   };
 
   render() {
@@ -20,22 +40,36 @@ class Main extends React.Component {
       );
     });
 
-    return (
-      <div className="main-bg">
-        <div className="index-ctn">
-
-          <div className="top-main">
-            <div className="index-header">
-              <div className="index-subheader-1">
-                <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
-              </div>
-              <div className="index-subheader-1">
-                <Link to="/browse" className=""><img src={window.profileURL} /></Link>
-              </div>
+    const header = this.state.headerPinned ? (
+      <div className="top-main-pinned">
+        <div className="index-header">
+          <div className="index-subheader-1">
+            <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
+          </div>
+          <div className="index-subheader-1">
+            <Link to="/browse" className=""><img src={window.profileURL} /></Link>
+          </div>
+        </div>
+      </div>
+    ) : (
+        <div className="top-main">
+          <div className="index-header">
+            <div className="index-subheader-1">
+              <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
+            </div>
+            <div className="index-subheader-1">
+              <Link to="/browse" className=""><img src={window.profileURL} /></Link>
             </div>
           </div>
+        </div>
+    )
 
+    return (
+      <div className="main-bg" onScroll={this.handleScroll}>
+        {header}
+        <div className="index-ctn">
           <div className="main-view">
+            <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" />
             <p>Greatest index page ever seen.</p>
             <ul>
               {videos}

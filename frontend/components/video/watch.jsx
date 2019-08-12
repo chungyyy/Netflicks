@@ -36,7 +36,7 @@ class Watch extends React.Component {
     this.props.fetchVideo(this.props.videoId);
     this.counter = setInterval(this.checkTime, 1000);
     document.addEventListener('keydown', this.handleKeyPress);
-  }
+  } 
   
   handleControls() {
     this.setState({
