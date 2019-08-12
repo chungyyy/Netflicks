@@ -69,14 +69,17 @@ class Main extends React.Component {
         {header}
         <div className="index-ctn">
           <div className="main-view">
-            <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" />
+            <div className="main-video-wrapper">
+              <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" />
+              <div className="main-gradient-layer"></div>
+            </div>
+          </div>
+          <VideoRow />
             <p>Greatest index page ever seen.</p>
             <ul>
               {videos}
             </ul>
             <button onClick={this.props.logout}>logout</button>
-          </div>
-          <VideoRow />
           <div className="index-footer">
             {/* TODO */}
           </div>
