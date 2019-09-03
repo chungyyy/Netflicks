@@ -10,13 +10,36 @@
   margin: 0;
 }
 
+.logout-text {
+  display: block;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 5px 10px;
+}
+
+.logout-text:hover {
+  text-decoration: underline;
+}
+
 .drop-down-menu {
-  opacity: 1;
+  opacity: .9;
   transition-duration: 200ms;
   position: absolute;
-  width: 150px;
-  height: 150px;
-  top: 50px;
+  width: 165px;
+  height: 50px;
+  top: 60px;
+  right: 35px;
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.fa-sort-down {
+  color: white;
+  margin-left: 10px;
+  margin-bottom: 6px;
+  cursor: pointer;
 }
 
 .static-image {

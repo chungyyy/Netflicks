@@ -5,7 +5,6 @@ const DropDownMenu = ({logout}) => {
   return (
     <div className="drop-down-menu">
       {logout}
-      sup
     </div>
   )
 }

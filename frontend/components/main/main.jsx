@@ -10,9 +10,11 @@ class Main extends React.Component {
     this.state = {
       initialScrollPos: 0,
       headerPinned: false,
+      showMenu: false,
     };
 
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleMenu = this.handleMenu.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +34,18 @@ class Main extends React.Component {
     });
   };
 
+  handleMenu() {
+    if (this.state.showMenu) {
+      this.setState({
+        showMenu: false,
+      });
+    } else {
+      this.setState({
+        showMenu: true,
+      });
+    }
+  }
+
   render() {
     const videos = this.props.videos.map(video => {
       return (
@@ -42,8 +56,19 @@ class Main extends React.Component {
     });
 
     const logoutButton = (
-      <button onClick={this.props.logout}>logout</button>
+      <div>
+        <span onClick={this.props.logout} className="logout-text">Sign out of Netflicks</span>
+        <span className="logout-text">More Options Soon &trade;</span>
+      </div>
     );
+
+    const Menu = this.state.showMenu ? (
+      <DropDownMenu
+        logout={logoutButton}
+      />
+    ) : (
+        <div></div>
+    )
 
     const header = this.state.headerPinned ? (
       <div className="top-main-pinned">
@@ -51,25 +76,23 @@ class Main extends React.Component {
           <div className="index-subheader-1">
             <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
           </div>
-          <div className="index-subheader-1">
+          <div className="index-subheader-1" onMouseEnter={this.handleMenu} onMouseLeave={this.handleMenu}>
             <Link to="/browse" className="profile-button"><img src={window.profileURL} /></Link>
-            <DropDownMenu
-              logout={logoutButton}
-            />
+            <i class="fas fa-sort-down"></i>
+            {Menu}
           </div>
         </div>
       </div>
     ) : (
         <div className="top-main">
           <div className="index-header">
-            <div className="index-subheader-1">
+            <div className="index-subheader-1" >
               <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
             </div>
-            <div className="index-subheader-1">
+            <div className="index-subheader-1" onMouseEnter={this.handleMenu} onMouseLeave={this.handleMenu}>
               <Link to="/browse" className=""><img src={window.profileURL} /></Link>
-              <DropDownMenu
-                logout={logoutButton}
-              />
+              <i class="fas fa-sort-down"></i>
+            {Menu}
             </div>
           </div>
         </div>
@@ -90,7 +113,6 @@ class Main extends React.Component {
             <ul>
               {videos}
             </ul>
-            {/* <button onClick={this.props.logout}>logout</button> */}
           <div className="index-footer">
             {/* TODO */}
           </div>
