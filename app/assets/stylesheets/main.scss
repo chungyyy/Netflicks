@@ -23,6 +23,18 @@
   text-decoration: underline;
 }
 
+.button-links {
+  display: flex;
+  justify-content: center;
+
+}
+
+#play-button-link {
+  box-shadow: none;
+  font-size: 1.1vw;
+}
+
+
 .drop-down-menu {
   opacity: .9;
   transition-duration: 200ms;
@@ -49,11 +61,11 @@
 .top-main {
   position: absolute;
   background-color: transparent;
-  z-index: 2;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
-  transition: background-color .4s;
+  transition: background-color .7s;
 }
 
 .main-gradient-layer {
@@ -71,11 +83,11 @@
 .top-main-pinned {
   position: fixed;
   background-color: #141414;
-  z-index: 2;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
-  transition: background-color .4s;
+  transition: background-color .7s;
 }
 
 .main-view {
@@ -86,7 +98,7 @@
 .main-bg {
   position: relative;
   background-color: #141414;
-  min-height: 500vh;
+  min-height: 300vh;
   bottom: 0;
 }
 
@@ -103,7 +115,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0 35px 0 35px;
+  padding: 0 35px;
   height: 100%;
 }
 

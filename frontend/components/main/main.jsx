@@ -78,7 +78,7 @@ class Main extends React.Component {
           </div>
           <div className="index-subheader-1" onMouseEnter={this.handleMenu} onMouseLeave={this.handleMenu}>
             <Link to="/browse" className="profile-button"><img src={window.profileURL} /></Link>
-            <i class="fas fa-sort-down"></i>
+            <i className="fas fa-sort-down"></i>
             {Menu}
           </div>
         </div>
@@ -91,7 +91,7 @@ class Main extends React.Component {
             </div>
             <div className="index-subheader-1" onMouseEnter={this.handleMenu} onMouseLeave={this.handleMenu}>
               <Link to="/browse" className=""><img src={window.profileURL} /></Link>
-              <i class="fas fa-sort-down"></i>
+              <i className="fas fa-sort-down"></i>
             {Menu}
             </div>
           </div>
@@ -104,15 +104,35 @@ class Main extends React.Component {
         <div className="index-ctn">
           <div className="main-view">
             <div className="main-video-wrapper">
+            <div className="info-layer">
+              <div className="watchmen-title-container">
+                <img className="watchmen-title" src={window.watchmanlogoURL} />
+              </div>
+              <div className="button-links">
+                <button className="play-button-link">
+                  <i id="play-button" className="fas fa-play"></i>
+                  <Link to={`/watch/${this.props.watchmenId}`}>Play</Link>
+                </button>
+              </div>
+            </div>
               <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" />
               <div className="main-gradient-layer"></div>
             </div>
           </div>
+          
+          <div className="top-row">
+            <p className="genre-text">Genre 1</p>
+            <VideoRow />
+          </div>
+          <ul>
+            {videos}
+          </ul>
+          <p className="genre-text">Genre 2</p>
           <VideoRow />
-            <p>Greatest index page ever seen.</p>
-            <ul>
-              {videos}
-            </ul>
+          <p className="genre-text">Genre 3</p>
+          <VideoRow />
+          <p className="genre-text">Genre 4</p>
+          <VideoRow />
           <div className="index-footer">
             {/* TODO */}
           </div>

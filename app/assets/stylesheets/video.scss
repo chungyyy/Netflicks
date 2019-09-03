@@ -15,6 +15,31 @@
   justify-content: space-between;
 }
 
+.info-layer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  opacity: 1;
+  height: 100%;
+  width: 40%;
+}
+
+.watchmen-title-container {
+  display: flex;
+  position: relative;
+  // width: 100%;
+}
+
+.watchmen-title {
+  display: flex;
+  position: relative;
+  margin-top: 80px;
+  margin-left: 68px;
+  width: 200px;
+  height: 100px;
+}
+
 .hide-watch-buttons {
   display: none;
 }
@@ -148,17 +173,16 @@
   transition: transform 0.3s;
 }
 
-.fa-volume-off {
+.fa-volume-mute {
   font-size: 30px;
   color: white;
   margin-left: 30px;
   margin-right: 30px;
   min-width: 40px;
   min-height: 40px;
-  // padding: 10px;
 }
 
-.fa-volume-off:hover {
+.fa-volume-mute:hover {
   cursor: pointer;
   transform: scale(1.2);
   transition: transform 0.3s;

@@ -2,15 +2,29 @@
   display: flex;
   position: relative;
   padding: 0 4%;
-  margin-top: -175px;
+  margin-bottom: 2.5vw;
+  z-index: 2;
+}
+
+.top-row {
+  margin-top: -235px;
+  position: relative;
+}
+
+.genre-text {
+  padding: 1% 4%;
+  color: white;
+  font-size: 1.6vw;
+  display: flex;
+  font-weight: bold;
+  user-select: none;
 }
 
 .rowItem {
   background: pink;
   margin: 0 2px;
   text-align: center;
-  // min-width: 50px;
-  // min-height: 50px; // otherwise boxes dissapears
+  min-height: 20vh; // otherwise boxes dissapears
   transition: transform 400ms ease 50ms;
   position: relative;
   overflow: hidden;

@@ -217,9 +217,10 @@ class Watch extends React.Component {
     )
 
     const audioButton = this.state.muted ? (
-      <i className="fas fa-volume-off" 
+      <i className="fas fa-volume-mute" 
         onClick={this.handleMute} 
       ></i>
+
       ) : (
       <i className="fas fa-volume-up" 
         onClick={this.handleMute} 
@@ -285,7 +286,7 @@ class Watch extends React.Component {
             className="video"
             ref="vidRef"
             preload="true"
-            autoPlay
+            autoPlay="true"
             src={this.props.video.video_clip}
             // src='http://media.w3.org/2010/05/bunny/movie.mp4'
             >
