@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoRow from './video_row';
+import DropDownMenu from './drop_down_menu';
 import { Link, withRouter } from 'react-router-dom';
 
 class Main extends React.Component {
@@ -40,6 +41,10 @@ class Main extends React.Component {
       );
     });
 
+    const logoutButton = (
+      <button onClick={this.props.logout}>logout</button>
+    );
+
     const header = this.state.headerPinned ? (
       <div className="top-main-pinned">
         <div className="index-header">
@@ -47,7 +52,10 @@ class Main extends React.Component {
             <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
           </div>
           <div className="index-subheader-1">
-            <Link to="/browse" className=""><img src={window.profileURL} /></Link>
+            <Link to="/browse" className="profile-button"><img src={window.profileURL} /></Link>
+            <DropDownMenu
+              logout={logoutButton}
+            />
           </div>
         </div>
       </div>
@@ -59,6 +67,9 @@ class Main extends React.Component {
             </div>
             <div className="index-subheader-1">
               <Link to="/browse" className=""><img src={window.profileURL} /></Link>
+              <DropDownMenu
+                logout={logoutButton}
+              />
             </div>
           </div>
         </div>
@@ -79,7 +90,7 @@ class Main extends React.Component {
             <ul>
               {videos}
             </ul>
-            <button onClick={this.props.logout}>logout</button>
+            {/* <button onClick={this.props.logout}>logout</button> */}
           <div className="index-footer">
             {/* TODO */}
           </div>

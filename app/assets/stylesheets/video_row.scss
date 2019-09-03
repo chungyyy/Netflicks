@@ -2,16 +2,18 @@
   display: flex;
   position: relative;
   padding: 0 4%;
-  margin-top: -60px;
+  margin-top: -175px;
 }
 
 .rowItem {
   background: pink;
   margin: 0 2px;
   text-align: center;
-  height: 30vh;
-  width: 20vw;
+  // min-width: 50px;
+  // min-height: 50px; // otherwise boxes dissapears
   transition: transform 400ms ease 50ms;
+  position: relative;
+  overflow: hidden;
 }
 
 .rowContainer:hover .rowItem {
