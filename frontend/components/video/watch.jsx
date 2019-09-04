@@ -285,8 +285,7 @@ class Watch extends React.Component {
           <video
             className="video"
             ref="vidRef"
-            preload="true"
-            autoPlay="true"
+            autoPlay={true}
             src={this.props.video.video_clip}
             // src='http://media.w3.org/2010/05/bunny/movie.mp4'
             >
