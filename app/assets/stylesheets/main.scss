@@ -25,13 +25,30 @@
 
 .button-links {
   display: flex;
-  justify-content: center;
-
+  width: 100%;
+  margin-left: 68px;
 }
 
-#play-button-link {
+.play-button-link {
+  display: flex;
+  border-radius: 3px;
+  height: 35px;
+  width: 95px;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: baseline;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+#play-button {
   box-shadow: none;
-  font-size: 1.1vw;
+  display: flex;
+  font-size: 18px;
+  height: 1.2vh;
+  text-decoration: none;
+  margin-left: 5px;
+  color: white;
 }
 
 

@@ -109,11 +109,14 @@ class Main extends React.Component {
                 <img className="watchmen-title" src={window.watchmanlogoURL} />
               </div>
               <div className="button-links">
-                <button className="play-button-link">
-                  <i id="play-button" className="fas fa-play"></i>
-                  <Link to={`/watch/${this.props.watchmenId}`}>Play</Link>
-                </button>
+                <Link id="play-button" to={`/watch/${this.props.watchmenId}`}>
+                  <button className="play-button-link">
+                    <i id="play-button" className="fas fa-play"></i>
+                    <span id="play-button">Play</span>
+                  </button>
+                </Link>
               </div>
+
             </div>
               <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" />
               <div className="main-gradient-layer"></div>

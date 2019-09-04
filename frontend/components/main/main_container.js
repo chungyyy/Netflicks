@@ -12,7 +12,6 @@ const msp = (state, ownProps) => {
     if (videos[i].title.toLowerCase().includes("watchmen")) {
       watchmenId = videos[i].id;
       break;
-      debugger
     }
   };
 
