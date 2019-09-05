@@ -11,4 +11,9 @@
 class Genre < ApplicationRecord
   validates :genre, presence: true
 
+  has_many :video_genres
+  
+  has_many :videos,
+    through: :video_genres,
+    source: :videos
 end

@@ -12,4 +12,10 @@
 class VideoGenre < ApplicationRecord
   validates :video_id, :genre_id, presence: true
   
+  belongs_to :videos,
+    primary_key: :id,
+    foreign_key: :video_id,
+    class_name: :Video
+
+  belongs_to :genre
 end

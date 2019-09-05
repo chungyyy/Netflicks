@@ -16,4 +16,9 @@ class Video < ApplicationRecord
 
   has_one_attached :video
   has_one_attached :photo
+
+  has_many :video_genres
+  
+  has_many :genres, 
+    through: :video_genres
 end

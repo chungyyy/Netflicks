@@ -97,7 +97,6 @@ class Main extends React.Component {
           </div>
         </div>
     )
-
     return (
       <div className="main-bg" onScroll={this.handleScroll}>
         {header}
@@ -118,24 +117,30 @@ class Main extends React.Component {
               </div>
 
             </div>
-              <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" />
+              {/* <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" /> */}
+              <video
+                autoPlay={true}
+                src={this.props.watchmenVideo && this.props.watchmenVideo.video_clip}
+              >
+              </video>
               <div className="main-gradient-layer"></div>
             </div>
           </div>
           
           <div className="top-row">
-            <p className="genre-text">Genre 1</p>
-            <VideoRow />
+            <p className="genre-text">Latest Videos</p>
+            <VideoRow videos={this.props.videos}/>
           </div>
-          <ul>
-            {videos}
-          </ul>
-          <p className="genre-text">Genre 2</p>
-          <VideoRow />
-          <p className="genre-text">Genre 3</p>
-          <VideoRow />
-          <p className="genre-text">Genre 4</p>
-          <VideoRow />
+          <p className="genre-text">Action</p>
+            <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Action"))} />
+          <p className="genre-text">Drama</p>
+            <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Drama"))}/>
+          <p className="genre-text">Musicals</p>
+          <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Musicals"))} />
+          <p className="genre-text">Thriller</p>
+          <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Thriller"))} />
+          <p className="genre-text">Adventure</p>
+          <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Adventure"))} />
           <div className="index-footer">
             {/* TODO */}
           </div>

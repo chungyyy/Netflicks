@@ -8,9 +8,11 @@ import { fetchAllVideos } from '../../actions/video_actions';
 const msp = (state, ownProps) => {
   const videos = Object.values(state.entities.videos);
   let watchmenId;
+  let watchmenVideo;
   for (let i = 0; i < videos.length; i++) {
     if (videos[i].title.toLowerCase().includes("watchmen")) {
       watchmenId = videos[i].id;
+      watchmenVideo = videos[i];
       break;
     }
   };
@@ -18,6 +20,7 @@ const msp = (state, ownProps) => {
   return {
     videos,
     watchmenId,
+    watchmenVideo,
   };
 };
 

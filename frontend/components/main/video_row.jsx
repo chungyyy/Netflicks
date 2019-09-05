@@ -1,19 +1,25 @@
 import React from 'react';
+import VideoRowItem from './video_row_item';
 import { Link, withRouter } from 'react-router-dom';
 
-const VideoRow = (props) => {
-  
-  return (
-  <div className="rowContainer">
-    <div className="rowItem" id="rowItem">greatest box ever seen.</div>
-    <div className="rowItem" id="rowItem">greatest box ever seen.</div>
-    <div className="rowItem" id="rowItem">greatest box ever seen.</div>
-    <div className="rowItem" id="rowItem">greatest box ever seen.</div>
-    <div className="rowItem" id="rowItem">greatest box ever seen.</div>
-    <div className="rowItem" id="rowItem">greatest box ever seen.</div>
+class VideoRow extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
-  </div>
-  )
+  render() {
+    const videosArr = [];
+
+    for (let i = 0; i < this.props.videos.length && i < 6; i++) {
+      videosArr.push(<VideoRowItem key={`rowItem-${i}`} video={this.props.videos[i]} />)
+    }
+  
+    return (
+      <div className = "rowContainer" >
+            { videosArr }
+      </div>
+    )
+  }
 }
 
 
