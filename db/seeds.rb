@@ -40,29 +40,66 @@ require 'open-uri'
 # theLionKing.video.attach(io: open('https://netflicks-dev.s3.amazonaws.com/Videos/The_Lion_King.mp4'), filename: 'The_Lion_King.mp4')
 # theLionKing.photo.attach(io: open('https://netflicks-dev.s3.amazonaws.com/movie_posters/The_Lion_King_Poster.jpg'), filename: 'The_Lion_King_Poster.jpg')
 
-### videoGenres
+#Genres
+
+Genre.create(genre: "Action")
+Genre.create(genre: "Drama")
+Genre.create(genre: "Musicals")
+Genre.create(genre: "Thriller")
+Genre.create(genre: "Adventure")
+
+### videoGenres ## DEVELOPMENT
+# # watchmen
+# VideoGenre.create(video_id: 12, genre_id: 1)
+# VideoGenre.create(video_id: 12, genre_id: 2)
+
+# # avengers
+# VideoGenre.create(video_id: 13, genre_id: 1)
+
+# # crazyRichAsians
+# VideoGenre.create(video_id: 14, genre_id: 2)
+
+# # getOut
+# VideoGenre.create(video_id: 15, genre_id: 4)
+
+# # La la land
+# VideoGenre.create(video_id: 16, genre_id: 3)
+
+# # Les miserables
+# VideoGenre.create(video_id: 17, genre_id: 2)
+# VideoGenre.create(video_id: 17, genre_id: 3)
+
+# # Spiderman
+# VideoGenre.create(video_id: 18, genre_id: 1)
+
+# # The lion king
+# VideoGenre.create(video_id: 19, genre_id: 5)
+
+
+
+## videoGenres ## PRODUCTION
 # watchmen
-VideoGenre.create(video_id: 12, genre_id: 1)
-VideoGenre.create(video_id: 12, genre_id: 2)
-
-# avengers
-VideoGenre.create(video_id: 13, genre_id: 1)
-
-# crazyRichAsians
+VideoGenre.create(video_id: 14, genre_id: 1)
 VideoGenre.create(video_id: 14, genre_id: 2)
 
+# avengers
+VideoGenre.create(video_id: 15, genre_id: 1)
+
+# crazyRichAsians
+VideoGenre.create(video_id: 16, genre_id: 2)
+
 # getOut
-VideoGenre.create(video_id: 15, genre_id: 4)
+VideoGenre.create(video_id: 17, genre_id: 4)
 
 # La la land
-VideoGenre.create(video_id: 16, genre_id: 3)
+VideoGenre.create(video_id: 18, genre_id: 3)
 
 # Les miserables
-VideoGenre.create(video_id: 17, genre_id: 2)
-VideoGenre.create(video_id: 17, genre_id: 3)
+VideoGenre.create(video_id: 19, genre_id: 2)
+VideoGenre.create(video_id: 19, genre_id: 3)
 
 # Spiderman
-VideoGenre.create(video_id: 18, genre_id: 1)
+VideoGenre.create(video_id: 20, genre_id: 1)
 
 # The lion king
-VideoGenre.create(video_id: 19, genre_id: 5)
+VideoGenre.create(video_id: 21, genre_id: 5)
