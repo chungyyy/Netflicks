@@ -136,11 +136,11 @@ class Main extends React.Component {
           <p className="genre-text">Drama</p>
             <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Drama"))}/>
           <p className="genre-text">Musicals</p>
-          <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Musicals"))} />
+            <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Musicals"))} />
           <p className="genre-text">Thriller</p>
-          <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Thriller"))} />
+            <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Thriller"))} />
           <p className="genre-text">Adventure</p>
-          <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Adventure"))} />
+            <VideoRow videos={this.props.videos.filter(video => video.genres.includes("Adventure"))} />
           <div className="index-footer">
             {/* TODO */}
           </div>
