@@ -11,10 +11,12 @@ class Main extends React.Component {
       initialScrollPos: 0,
       headerPinned: false,
       showMenu: false,
+      showSearchBar: false,
     };
 
     this.handleScroll = this.handleScroll.bind(this);
     this.handleMenu = this.handleMenu.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +44,18 @@ class Main extends React.Component {
     } else {
       this.setState({
         showMenu: true,
+      });
+    }
+  }
+
+  handleSearch() {
+    if (this.state.showSearchBar) {
+      this.setState({
+        showSearchBar: false,
+      });
+    } else {
+      this.setState({
+        showSearchBar: true,
       });
     }
   }
@@ -76,10 +90,13 @@ class Main extends React.Component {
           <div className="index-subheader-1">
             <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
           </div>
-          <div className="index-subheader-1" onMouseEnter={this.handleMenu} onMouseLeave={this.handleMenu}>
-            <Link to="/browse" className="profile-button"><img src={window.profileURL} /></Link>
-            <i className="fas fa-sort-down"></i>
-            {Menu}
+          <div className="index-subheader-2">
+            <i className="fas fa-search"></i>
+            <div className="index-subheader-1" onMouseEnter={this.handleMenu} onMouseLeave={this.handleMenu}>
+              <Link to="/browse" className="profile-button"><img src={window.profileURL} /></Link>
+              <i className="fas fa-sort-down"></i>
+              {Menu}
+            </div>
           </div>
         </div>
       </div>
@@ -89,10 +106,13 @@ class Main extends React.Component {
             <div className="index-subheader-1" >
               <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
             </div>
-            <div className="index-subheader-1" onMouseEnter={this.handleMenu} onMouseLeave={this.handleMenu}>
-              <Link to="/browse" className=""><img src={window.profileURL} /></Link>
-              <i className="fas fa-sort-down"></i>
-            {Menu}
+            <div className="index-subheader-2">
+              <i className="fas fa-search"></i>
+              <div className="index-subheader-1" onMouseEnter={this.handleMenu} onMouseLeave={this.handleMenu}>
+                <Link to="/browse" className=""><img src={window.profileURL} /></Link>
+                <i className="fas fa-sort-down"></i>
+              {Menu}
+              </div>
             </div>
           </div>
         </div>
@@ -117,12 +137,12 @@ class Main extends React.Component {
               </div>
 
             </div>
-              {/* <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" /> */}
-              <video
+              <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" />
+              {/* <video
                 autoPlay={true}
                 src={this.props.watchmenVideo && this.props.watchmenVideo.video_clip}
               >
-              </video>
+              </video> */}
               <div className="main-gradient-layer"></div>
             </div>
           </div>

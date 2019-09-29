@@ -8,4 +8,9 @@ class Api::VideosController < ApplicationController
     # use .includes for joins and n+1 query fixes later
   end
 
+  def search
+    @videos = Video.where('title ILIKE ?', "%#{params[:query]}%")
+    render :index
+  end
+
 end
