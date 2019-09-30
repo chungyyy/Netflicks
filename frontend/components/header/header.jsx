@@ -1,5 +1,5 @@
 import React from 'react';
-import DropDownMenu from './drop_down_menu';
+import DropDownMenu from '../main/drop_down_menu';
 import { Link, withRouter } from 'react-router-dom';
 
 class Header extends React.Component {
@@ -9,11 +9,12 @@ class Header extends React.Component {
     this.state = {
       showMenu: false,
       showSearchBar: false,
+      searchField: "",
     };
 
     this.handleMenu = this.handleMenu.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-
+    this.updateSearchField = this.updateSearchField.bind(this);
   }
 
   handleMenu() {
@@ -40,6 +41,27 @@ class Header extends React.Component {
     }
   }
 
+  updateSearchField(field) {
+    return (e) => {
+      this.setState({
+        [field]: e.target.value,
+      }, () => {
+        if (this.state.searchField.length === 0) {
+          this.props.notSearching();
+          this.props.history.push(`/browse`);
+          this.props.clearSearchedVideos();
+        } else {
+          clearTimeout(this.searchTimeOut);
+          this.props.isSearching(this.state.searchField);
+          this.props.history.push(`/search/${this.state.searchField}`);
+          this.searchTimeOut = setTimeout(() => {
+            this.props.fetchSearchedVideos(this.state.searchField);
+          }, 1000);
+        }
+      })
+    };
+  }
+
   render() {
     const Menu = this.state.showMenu ? (
       <DropDownMenu
@@ -50,6 +72,18 @@ class Header extends React.Component {
     )
 
     const headerClass = this.props.headerPinned ? "top-main-pinned" : "top-main";
+    const searchBar = this.state.showSearchBar ? (
+      <div>
+        <i className="fas fa-search" onClick={this.handleSearch}></i>
+        <input className="input-field" type="text"
+          value={this.state.searchField}
+          onChange={this.updateSearchField("searchField")}
+          placeholder="Titles"
+        />
+      </div>
+    ) : (
+        <i className="fas fa-search" onClick={this.handleSearch}></i>
+    )
 
     return (
       <div className={headerClass}>
@@ -58,7 +92,7 @@ class Header extends React.Component {
             <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
           </div>
           <div className="index-subheader-2">
-            <i className="fas fa-search"></i>
+            {searchBar}
             <div className="index-subheader-1" onMouseEnter={this.handleMenu} onMouseLeave={this.handleMenu}>
               <Link to="/browse" className="profile-button"><img src={window.profileURL} /></Link>
               <i className="fas fa-sort-down"></i>
@@ -71,4 +105,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

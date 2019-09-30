@@ -3,6 +3,7 @@ import * as video_util from '../util/video_util';
 export const RECEIVE_ALL_VIDEOS = 'RECEIVE_ALL_VIDEOS';
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO';
 export const RECEIVE_SEARCHED_VIDEOS = 'RECEIVE_SEARCHED_VIDEOS';
+export const CLEAR_SEARCHED_VIDEOS = 'CLEAR_SEARCHED_VIDEOS';
 
 export const fetchAllVideos = () => dispatch => {
   return video_util.fetchVideos().
@@ -37,5 +38,11 @@ const receiveSearchedVideos = (videos) => {
   return {
     type: RECEIVE_SEARCHED_VIDEOS,
     videos,
+  };
+};
+
+export const clearSearchedVideos = () => {
+  return {
+    type: CLEAR_SEARCHED_VIDEOS,
   };
 };
