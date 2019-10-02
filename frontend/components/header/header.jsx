@@ -75,7 +75,7 @@ class Header extends React.Component {
     const searchBar = this.state.showSearchBar ? (
       <div>
         <i className="fas fa-search" onClick={this.handleSearch}></i>
-        <input className="input-field" type="text"
+        <input className="" type="text"
           value={this.state.searchField}
           onChange={this.updateSearchField("searchField")}
           placeholder="Titles"
