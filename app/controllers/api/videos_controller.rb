@@ -9,7 +9,7 @@ class Api::VideosController < ApplicationController
   end
 
   def search
-    @videos = Video.where('title ILIKE ?', "%#{params[:query]}%")
+    @videos = Video.with_attached_photo.with_attached_video.includes(:genres).joins(:genres).where('title ILIKE ? OR genre ILIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
     render :index
   end
 

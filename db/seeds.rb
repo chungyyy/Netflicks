@@ -42,16 +42,19 @@ require 'open-uri'
 
 #Genres
 
-Genre.create(genre: "Action")
-Genre.create(genre: "Drama")
-Genre.create(genre: "Musicals")
-Genre.create(genre: "Thriller")
-Genre.create(genre: "Adventure")
+action = Genre.create(genre: "Action")
+drama = Genre.create(genre: "Drama")
+musicals = Genre.create(genre: "Musicals")
+thriller = Genre.create(genre: "Thriller")
+adventure = Genre.create(genre: "Adventure")
 
 ### videoGenres ## DEVELOPMENT
 # # watchmen
-# VideoGenre.create(video_id: 12, genre_id: 1)
-# VideoGenre.create(video_id: 12, genre_id: 2)
+# VideoGenre.create([
+#   {video_id: watchmen.id, genre_id: action.id},
+#   {video_id: watchmen.id, genre_id: adventure.id},
+# ])
+# VideoGenre.create(video_id: watchmen.id, genre_id: )
 
 # # avengers
 # VideoGenre.create(video_id: 13, genre_id: 1)

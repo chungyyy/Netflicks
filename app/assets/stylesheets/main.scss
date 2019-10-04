@@ -155,6 +155,23 @@
 .fa-search {
   font-size: 20px;
   color: white;
-  padding: 15px;
+  padding: 8px;
   cursor: pointer;
+}
+
+.search-bar-container {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 0px;
+}
+
+.search-bar {
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.search-bar:focus {
+  outline: none;
 }

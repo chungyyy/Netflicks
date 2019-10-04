@@ -50,6 +50,7 @@ class Header extends React.Component {
           this.props.notSearching();
           this.props.history.push(`/browse`);
           this.props.clearSearchedVideos();
+          clearTimeout(this.searchTimeOut)
         } else {
           clearTimeout(this.searchTimeOut);
           this.props.isSearching(this.state.searchField);
@@ -73,14 +74,14 @@ class Header extends React.Component {
 
     const headerClass = this.props.headerPinned ? "top-main-pinned" : "top-main";
     const searchBar = this.state.showSearchBar ? (
-      <div>
+      <form className="search-bar-container">
         <i className="fas fa-search" onClick={this.handleSearch}></i>
-        <input className="" type="text"
+        <input className="search-bar" type="text"
           value={this.state.searchField}
           onChange={this.updateSearchField("searchField")}
-          placeholder="Titles"
+          placeholder="Titles, genres"
         />
-      </div>
+      </form>
     ) : (
         <i className="fas fa-search" onClick={this.handleSearch}></i>
     )
