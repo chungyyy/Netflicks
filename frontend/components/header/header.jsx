@@ -11,10 +11,12 @@ class Header extends React.Component {
       showSearchBar: false,
       searchField: "",
     };
+    this.myInputRef = React.createRef();
 
     this.handleMenu = this.handleMenu.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.updateSearchField = this.updateSearchField.bind(this);
+    this.resetSearchField = this.resetSearchField.bind(this);
   }
 
   handleMenu() {
@@ -33,10 +35,20 @@ class Header extends React.Component {
     if (this.state.showSearchBar) {
       this.setState({
         showSearchBar: false,
+        searchField: "",
       });
     } else {
       this.setState({
         showSearchBar: true,
+      }, () => {this.myInputRef.current.focus();});
+    }
+  }
+
+  resetSearchField() {
+    if (this.props.match.path === '/browse') {
+      this.setState({
+        showSearchBar: false,
+        searchField: "",
       });
     }
   }
@@ -76,9 +88,13 @@ class Header extends React.Component {
     const searchBar = this.state.showSearchBar ? (
       <form className="search-bar-container">
         <i className="fas fa-search" onClick={this.handleSearch}></i>
-        <input className="search-bar" type="text"
+        <input 
+          className="search-bar" 
+          type="text"
+          ref={this.myInputRef}
           value={this.state.searchField}
           onChange={this.updateSearchField("searchField")}
+          onBlur={this.resetSearchField}
           placeholder="Titles, genres"
         />
       </form>
