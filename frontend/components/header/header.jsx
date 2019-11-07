@@ -122,6 +122,7 @@ class Header extends React.Component {
           <div className="index-subheader-1">
             <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} onClick={this.backToBrowse}/></Link>
             <Link to="/browse" className="link-text"><p onClick={this.backToBrowse}>Home</p></Link>
+            <Link to="/browse" className="link-text"><p>My List</p></Link>
           </div>
           <div className="index-subheader-2">
             {searchBar}

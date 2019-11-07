@@ -82,12 +82,12 @@ class Main extends React.Component {
               </div>
 
             </div>
-            <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" />
-            {/* <video
+            {/* <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" /> */}
+            <video
                 autoPlay={true}
                 src={this.props.watchmenVideo && this.props.watchmenVideo.video_clip}
               >
-              </video> */}
+              </video>
             <div className="main-gradient-layer"></div>
           </div>
         </div>
