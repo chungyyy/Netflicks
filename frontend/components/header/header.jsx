@@ -17,6 +17,7 @@ class Header extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.updateSearchField = this.updateSearchField.bind(this);
     this.resetSearchField = this.resetSearchField.bind(this);
+    this.backToBrowse = this.backToBrowse.bind(this);
   }
 
   handleMenu() {
@@ -50,7 +51,20 @@ class Header extends React.Component {
         showSearchBar: false,
         searchField: "",
       });
-    }
+    };
+  }
+
+  backToBrowse() {
+    this.setState({
+      showSearchBar: false,
+      searchField: "",
+    }, () => {
+      if (this.state.searchField.length === 0) {
+        this.props.notSearching();
+        this.props.history.push(`/browse`);
+        this.props.clearSearchedVideos();
+      }
+    })
   }
 
   updateSearchField(field) {
@@ -93,7 +107,7 @@ class Header extends React.Component {
           type="text"
           ref={this.myInputRef}
           value={this.state.searchField}
-          onChange={this.updateSearchField("searchField")}
+          onChange={this.updateSearchField("searchField")}  
           onBlur={this.resetSearchField}
           placeholder="Titles, genres"
         />
@@ -106,7 +120,8 @@ class Header extends React.Component {
       <div className={headerClass}>
         <div className="index-header">
           <div className="index-subheader-1">
-            <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} /></Link>
+            <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} onClick={this.backToBrowse}/></Link>
+            <Link to="/browse" className="link-text"><p onClick={this.backToBrowse}>Home</p></Link>
           </div>
           <div className="index-subheader-2">
             {searchBar}

@@ -61,7 +61,9 @@ class Main extends React.Component {
     );
 
     const main = this.state.searching ? (
-      <Search />
+      <div className="search-container">
+        <Search />
+      </div>
       ) : (
       <div className="index-ctn">
         <div className="main-view">

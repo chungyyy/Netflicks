@@ -175,3 +175,15 @@
 .search-bar:focus {
   outline: none;
 }
+.search-container {
+  display: flex;
+  position: relative;
+  top: 70px;
+}
+
+.link-text {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin: 0px 10px 0px 10px;
+}
