@@ -60,6 +60,11 @@
   object-fit: contain;
 }
 
+.main-video {
+  width: 100vw;
+  min-width: 100vw;
+}
+
 .main-watch {
   background-color: black;
   height: 100%;

@@ -45,14 +45,6 @@ class Main extends React.Component {
   }
 
   render() {
-    const videos = this.props.videos.map(video => {
-      return (
-          <li key={video.id}>
-            <Link to={`/watch/${video.id}`}>{video.title}</Link>
-          </li>
-      );
-    });
-
     const logoutButton = (
       <div>
         <span onClick={this.props.logout} className="logout-text">Sign out of Netflicks</span>
@@ -85,9 +77,11 @@ class Main extends React.Component {
             {/* <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" /> */}
             <video
                 autoPlay={true}
-                src={this.props.watchmenVideo && this.props.watchmenVideo.video_clip}
-              >
-              </video>
+                className="main-video"
+                poster="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg"
+                src={this.props.watchmenVideoClip}
+            >
+            </video>
             <div className="main-gradient-layer"></div>
           </div>
         </div>
