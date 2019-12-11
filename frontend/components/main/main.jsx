@@ -45,6 +45,10 @@ class Main extends React.Component {
   }
 
   render() {
+    if (!this.props.watchmenVideoClip) {
+      return null;
+    }
+
     const logoutButton = (
       <div>
         <span onClick={this.props.logout} className="logout-text">Sign out of Netflicks</span>
@@ -78,6 +82,8 @@ class Main extends React.Component {
             <video
                 autoPlay={true}
                 className="main-video"
+                // muted={true}
+                key={this.props.watchmenVideoClip}
                 poster="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg"
                 src={this.props.watchmenVideoClip}
             >
