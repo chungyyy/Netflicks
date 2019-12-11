@@ -27,6 +27,6 @@ class Video < ApplicationRecord
     class_name: :WatchList
 
   has_many :watchlist_users,
-    through: :WatchList,
+    through: :watchlists,
     source: :user
 end
