@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // TESTING
   window.search = video_util.fetchSearchedVideos;
   window.fetchSearchedVideos = video_action.fetchSearchedVideos;
+  window.fetchWatchListVideos = video_util.fetchWatchListVideos;
+  window.addWatchListVideo = video_util.addWatchListVideo;
+  window.deleteWatchListVideo = video_util.deleteWatchListVideo;
+  window.fetchVideos = video_util.fetchVideos;
   window.signup = session_action.signup;
   window.login = session_action.login;
   window.logout = session_action.logout;

@@ -1,34 +1,29 @@
-class Api::WatchListsController < ApplicationController
-  def show
-    @videos = User.where(id: current_user.id).videos.with_attached_photo.with_attached_video
-    render 'api/videos/index'
+class Api::WatchlistsController < ApplicationController
+  def index
+    @videos = User.where(id: current_user.id)[0].videos.with_attached_photo.with_attached_video
+    render :index
   end
 
   def create
-    my_video = WatchList.new(watchlist_params)
+    my_video = WatchList.new(user_id: current_user.id, video_id: params[:id])
 
     if my_video.save
-      # lets render something quick
-      @user = User.find(my_video.user_id)
-      render 'api/user/show'
+      @videos = User.where(id: current_user.id)[0].videos.with_attached_photo.with_attached_video
+      render :index
     else
       render json: my_video.errors.full_messages
     end
   end
 
   def destroy
-    my_video = WatchList.find_by(user_id: params[:user_id], video_id: params[:video_id])
-    if my_video.destroy
-      @user = User.find(my_video.user_id)
-      render 'api/user/show'
+    my_video = WatchList.find_by(user_id: current_user.id, video_id: params[:id])
+    if my_video
+      my_video.destroy
+      @videos = User.where(id: current_user.id)[0].videos.with_attached_photo.with_attached_video
+      render :index
     else
-      render json: my_video.full_messages
+      render json: ["Video not in watchlist"]
     end
   end
 
-  private
-
-  def watchlist_params
-    params.require(:watchlist).permit(:user_id, :video_id)
-  end
 end

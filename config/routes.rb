@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :videos, only: [:index, :show]
-    resources :watchlists, only: [:show, :create, :destroy]
+    resources :watchlists, only: [:index, :create, :destroy]
 
     get 'videos/search/:query', to: 'videos#search'
   end
