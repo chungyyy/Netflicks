@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // TESTING
   window.search = video_util.fetchSearchedVideos;
   window.fetchSearchedVideos = video_action.fetchSearchedVideos;
+  window.fetchWatchListVideoss = video_action.fetchWatchListVideos;
   window.fetchWatchListVideos = video_util.fetchWatchListVideos;
   window.addWatchListVideo = video_util.addWatchListVideo;
   window.deleteWatchListVideo = video_util.deleteWatchListVideo;

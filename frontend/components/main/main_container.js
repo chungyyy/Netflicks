@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Main from './main';
 import { logout } from '../../actions/session_actions';
-import { fetchAllVideos, fetchVideo } from '../../actions/video_actions';
+import { fetchAllVideos, fetchVideo, fetchWatchListVideos } from '../../actions/video_actions';
 
 
 
@@ -32,6 +32,7 @@ const mdp = (dispatch) => {
     logout: () => dispatch(logout()),
     fetchVideo: (id) => dispatch(fetchVideo(id)),
     fetchAllVideos: () => dispatch(fetchAllVideos()),
+    fetchWatchListVideos: () => dispatch(fetchWatchListVideos())
   };
 };
 
