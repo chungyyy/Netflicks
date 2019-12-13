@@ -12,11 +12,14 @@ class Main extends React.Component {
       initialScrollPos: 0,
       headerPinned: false,
       searching: false,
+      viewingWatchlist: false,
     };
 
     this.handleScroll = this.handleScroll.bind(this);
     this.notSearching = this.notSearching.bind(this);
     this.isSearching = this.isSearching.bind(this);
+    this.audioOn = this.audioOn.bind(this);
+
   }
 
   componentDidMount() {
@@ -45,6 +48,10 @@ class Main extends React.Component {
     this.setState({ searching: false });
   }
 
+  audioOn() {
+    this.refs.vidRef.muted = false;
+  }
+
   render() {
     if (!this.props.watchmenVideoClip) {
       return null;
@@ -56,6 +63,20 @@ class Main extends React.Component {
         <span className="logout-text">More Options Soon &trade;</span>
       </div>
     );
+
+    const mainVideo = (
+      <video
+        onPlay={this.audioOn}
+        ref="vidRef"
+        autoPlay={true}
+        className="main-video"
+        muted={true}
+        key={this.props.watchmenVideoClip}
+        poster="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg"
+        src={this.props.watchmenVideoClip}
+      >
+      </video>
+    )
 
     const main = this.state.searching ? (
       <div className="search-container">
@@ -80,15 +101,7 @@ class Main extends React.Component {
 
             </div>
             {/* <img className="static-image" src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg" /> */}
-            <video
-                autoPlay={true}
-                className="main-video"
-                // muted={true}
-                key={this.props.watchmenVideoClip}
-                poster="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/watchmen_2_0.jpg"
-                src={this.props.watchmenVideoClip}
-            >
-            </video>
+            {mainVideo}
             <div className="main-gradient-layer"></div>
           </div>
         </div>

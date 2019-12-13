@@ -29,6 +29,7 @@ class Watch extends React.Component {
     this.AudioSliderOff = this.AudioSliderOff.bind(this);
     this.AudioSliderOn = this.AudioSliderOn.bind(this);
     this.handleControls = this.handleControls.bind(this);
+    this.audioOn = this.audioOn.bind(this);
     
   }
 
@@ -199,6 +200,10 @@ class Watch extends React.Component {
     }
   }
 
+  audioOn() {
+    this.refs.vidRef.muted = false;
+  }
+
   render() {
     if (!this.props.video) {
       return null;
@@ -283,9 +288,11 @@ class Watch extends React.Component {
       <div className="main-watch" onMouseMove={this.handleControls} ref ="controlRef">
         <div className="video-container">
           <video
+            onPlay={this.audioOn}
             className="video"
             ref="vidRef"
             autoPlay={true}
+            muted={true}
             src={this.props.video.video_clip}
             // src='http://media.w3.org/2010/05/bunny/movie.mp4'
             >
