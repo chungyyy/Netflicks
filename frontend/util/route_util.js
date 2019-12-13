@@ -6,8 +6,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => {
   return (
     <Route path={path} exact={exact} render={(props) => (
       loggedIn ? (
-        // redirect to /browse when you have it working
-        <Redirect to="/" /> 
+        <Redirect to="/browse" /> 
       ) : (
         <Component {...props} />
       )
