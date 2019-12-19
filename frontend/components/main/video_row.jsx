@@ -1,5 +1,5 @@
 import React from 'react';
-import VideoRowItem from './video_row_item';
+import VideoRowItem from './view_row_item_container';
 import { Link, withRouter } from 'react-router-dom';
 
 class VideoRow extends React.Component {

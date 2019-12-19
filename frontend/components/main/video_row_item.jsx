@@ -15,6 +15,10 @@ class VideoRowItem extends React.Component {
 
   }
 
+  componentDidMount() {
+    this.props.fetchWatchListVideos();
+  }
+
   handleHoverOn() {
       this.controlTimeOut = setTimeout(() => {
       this.setState({
