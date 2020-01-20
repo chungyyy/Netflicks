@@ -109,7 +109,7 @@ class Header extends React.Component {
           value={this.state.searchField}
           onChange={this.updateSearchField("searchField")}  
           onBlur={this.resetSearchField}
-          placeholder="Titles, genres"
+          placeholder="Titles, Genres"
         />
       </form>
     ) : (

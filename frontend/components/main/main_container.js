@@ -7,6 +7,7 @@ import { fetchAllVideos, fetchVideo, fetchWatchListVideos } from '../../actions/
 
 const msp = (state, ownProps) => {
   const videos = Object.values(state.entities.videos);
+  const watchlistVideos = Object.values(state.entities.watchlist);
   let watchmenId;
   let watchmenVideo;
   let watchmenVideoClip;
@@ -24,6 +25,7 @@ const msp = (state, ownProps) => {
     watchmenId,
     watchmenVideo,
     watchmenVideoClip,
+    watchlistVideos,
   };
 };
 

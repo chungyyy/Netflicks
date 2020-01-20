@@ -15,7 +15,8 @@ class Main extends React.Component {
       viewingWatchlist: false,
       muted: false,
       prevVolume: 0.5,
-      volume: 0.5
+      volume: 0.5,
+      watchlistVideos: this.props.watchlistVideos
     };
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -26,10 +27,16 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllVideos();
-    console.log("component mounting");
+    if(!this.props.videos.length) {
+      this.props.fetchAllVideos();
+    }
+
     this.props.fetchWatchListVideos();
     document.addEventListener("scroll", this.handleScroll);
+
+    if(this.state.mute) {
+      this.setState({ mute: false });
+    } 
   }
 
   componentWillUnmount() {
