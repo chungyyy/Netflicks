@@ -27,16 +27,11 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    if(!this.props.videos.length) {
+    if (!this.props.videos.length) {
       this.props.fetchAllVideos();
     }
-
     this.props.fetchWatchListVideos();
     document.addEventListener("scroll", this.handleScroll);
-
-    if(this.state.mute) {
-      this.setState({ mute: false });
-    } 
   }
 
   componentWillUnmount() {
@@ -190,6 +185,7 @@ class Main extends React.Component {
       <div className="main-bg" onScroll={this.handleScroll}>
         <Header
           isSearching={this.isSearching}
+          handleMute={this.handleMute}
           notSearching={this.notSearching}
           logout={logoutButton}
           headerPinned={this.state.headerPinned}
