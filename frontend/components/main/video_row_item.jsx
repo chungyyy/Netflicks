@@ -16,7 +16,7 @@ class VideoRowItem extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchWatchListVideos();
+    // this.props.fetchWatchListVideos();
   }
 
   handleHoverOn() {

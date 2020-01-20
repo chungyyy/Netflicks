@@ -1,8 +1,10 @@
-import { connect } from 'react-redux';
-import VideoRowItem from './video_row_item';
-import { addWatchListVideo, deleteWatchListVideo, fetchWatchListVideos } from '../../actions/video_actions';
-
-
+import { connect } from "react-redux";
+import VideoRowItem from "./video_row_item";
+import {
+  addWatchListVideo,
+  deleteWatchListVideo,
+  fetchWatchListVideos
+} from "../../actions/video_actions";
 
 const msp = (state, ownProps) => {
   const videos = Object.values(state.entities.videos);
@@ -16,13 +18,21 @@ const msp = (state, ownProps) => {
       watchmenVideoClip = videos[i].video_clip;
       break;
     }
+  }
+
+  return {
+    videos,
+    watchmenId,
+    watchmenVideo,
+    watchmenVideoClip
+  };
 };
 
-const mdp = (dispatch) => {
+const mdp = dispatch => {
   return {
     fetchWatchListVideos: () => dispatch(fetchWatchListVideos()),
     addWatchListVideo: () => dispatch(addWatchListVideo(id)),
-    deleteWatchListVideo: () => dispatch(deleteWatchListVideo(id)),
+    deleteWatchListVideo: () => dispatch(deleteWatchListVideo(id))
   };
 };
 

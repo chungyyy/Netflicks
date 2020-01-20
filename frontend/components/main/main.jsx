@@ -24,6 +24,7 @@ class Main extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllVideos();
+    console.log("component mounting");
     this.props.fetchWatchListVideos();
     document.addEventListener("scroll", this.handleScroll);
   };
