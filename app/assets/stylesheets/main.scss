@@ -32,13 +32,17 @@
 .play-button-link {
   display: flex;
   border-radius: 3px;
-  height: 35px;
-  width: 95px;
+  height: 34px;
+  width: 94px;
   background-color: rgba(0, 0, 0, 0.4);
   align-items: baseline;
   justify-content: center;
   border: none;
   cursor: pointer;
+}
+
+#main-page-volume {
+  font-size: 34px;
 }
 
 #play-button {
