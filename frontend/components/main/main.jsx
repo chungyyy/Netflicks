@@ -3,6 +3,7 @@ import VideoRow from "./video_row";
 import Header from "../header/header_container";
 import { Link, withRouter } from "react-router-dom";
 import Search from "../search/search_container";
+import Watchlist from "../watchlist/watch_list_container";
 
 class Main extends React.Component {
   constructor(props) {
@@ -24,6 +25,8 @@ class Main extends React.Component {
     this.isSearching = this.isSearching.bind(this);
     this.audioOn = this.audioOn.bind(this);
     this.handleMute = this.handleMute.bind(this);
+    this.watchListOn = this.watchListOn.bind(this);
+    this.watchListOff = this.watchListOff.bind(this);
   }
 
   componentDidMount() {
@@ -68,6 +71,14 @@ class Main extends React.Component {
 
   notSearching() {
     this.setState({ searching: false });
+  }
+
+  watchListOn() {
+    this.setState({ viewingWatchlist: true });
+  }
+
+  watchListOff() {
+    this.setState({ viewingWatchlist: false });
   }
 
   audioOn() {
@@ -118,6 +129,10 @@ class Main extends React.Component {
     const main = this.state.searching ? (
       <div className="search-container">
         <Search />
+      </div>
+    ) : this.state.viewingWatchlist ? (
+      <div className="search-container">
+        <Watchlist />
       </div>
     ) : (
       <div className="index-ctn">
@@ -189,6 +204,9 @@ class Main extends React.Component {
           notSearching={this.notSearching}
           logout={logoutButton}
           headerPinned={this.state.headerPinned}
+          watchListOn={this.watchListOn}
+          watchListOff={this.watchListOff}
+          viewingWatchlist={this.state.viewingWatchlist}
         />
         {main}
       </div>

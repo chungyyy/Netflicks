@@ -18,6 +18,7 @@ class Header extends React.Component {
     this.updateSearchField = this.updateSearchField.bind(this);
     this.resetSearchField = this.resetSearchField.bind(this);
     this.backToBrowse = this.backToBrowse.bind(this);
+    this.backToWatchlist = this.backToWatchlist.bind(this);
   }
 
   handleMenu() {
@@ -50,6 +51,8 @@ class Header extends React.Component {
       this.setState({
         showSearchBar: false,
         searchField: "",
+      }, () => {
+        this.props.watchListOff();
       });
     };
   }
@@ -61,7 +64,22 @@ class Header extends React.Component {
     }, () => {
       if (this.state.searchField.length === 0) {
         this.props.notSearching();
+        this.props.watchListOff();
         this.props.history.push(`/browse`);
+        this.props.clearSearchedVideos();
+      }
+    })
+  }
+
+  backToWatchlist() {
+    this.setState({
+      showSearchBar: false,
+      searchField: "",
+    }, () => {
+      if (this.state.searchField.length === 0) {
+        this.props.notSearching();
+        this.props.watchListOn();
+        this.props.history.push(`/browse/mylist`);
         this.props.clearSearchedVideos();
       }
     })
@@ -74,6 +92,7 @@ class Header extends React.Component {
       }, () => {
         if (this.state.searchField.length === 0) {
           this.props.notSearching();
+          // this.props.viewingWatchlist ? this.props.history.push(`/browse/mylist`) : this.props.history.push(`/browse`);
           this.props.history.push(`/browse`);
           this.props.clearSearchedVideos();
           clearTimeout(this.searchTimeOut)
@@ -122,7 +141,7 @@ class Header extends React.Component {
           <div className="index-subheader-1">
             <Link to="/browse" className="nf-main-logo"><img src={window.nflogoURL} onClick={this.backToBrowse}/></Link>
             <Link to="/browse" className="link-text"><p onClick={this.backToBrowse}>Home</p></Link>
-            <Link to="/browse/mylist" className="link-text"><p>My List</p></Link>
+            <Link to="/browse/mylist" className="link-text"><p onClick={this.backToWatchlist}>My List</p></Link>
           </div>
           <div className="index-subheader-2">
             {searchBar}

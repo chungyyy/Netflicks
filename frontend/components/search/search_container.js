@@ -11,7 +11,6 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return {
-    logout: () => dispatch(logout()),
     fetchSearchedVideos: (query) => dispatch(fetchSearchedVideos(query)),
   }
 };
