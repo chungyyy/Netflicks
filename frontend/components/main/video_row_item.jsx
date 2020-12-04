@@ -8,7 +8,7 @@ class VideoRowItem extends React.Component {
     super(props)
     this.state = {
       isHover: false,
-      inWatchList: this.props.watchlistArrayIds.includes(this.props.video.id) ? true : false,
+      // inWatchList: this.props.watchlistArrayIds.includes(this.props.video.id) ? true : false,
     }
     this.handleHoverOn = this.handleHoverOn.bind(this);
     this.handleHoverOff = this.handleHoverOff.bind(this);
@@ -21,7 +21,7 @@ class VideoRowItem extends React.Component {
       this.setState({
         isHover: true,
       })
-      }, 500);
+      }, 1000);
   }
 
   handleHoverOff() {
@@ -32,26 +32,26 @@ class VideoRowItem extends React.Component {
   }
 
   handleWatchList() {
-    if (this.state.inWatchList) {
+    if (this.props.watchlistArrayIds.includes(this.props.video.id)) {
       this.props.deleteWatchListVideo(this.props.video.id);
-      this.setState({ inWatchList: this.props.watchlistArrayIds.includes(this.props.video.id) ? true : false });
+      // this.setState({ inWatchList: this.props.watchlistArrayIds.includes(this.props.video.id) ? true : false });
     } else {
       this.props.addWatchListVideo(this.props.video.id);
-      this.setState({ inWatchList: this.props.watchlistArrayIds.includes(this.props.video.id) ? true : false });
+      // this.setState({ inWatchList: this.props.watchlistArrayIds.includes(this.props.video.id) ? true : false });
     }
   }
 
   render() {
     let watchListButton = this.props.watchlistArrayIds.includes(this.props.video.id) ?  (
-      <span key={this.state.inWatchList} onClick={this.handleWatchList}>
+      <div className="watchListButton" key={this.state.inWatchList} onClick={this.handleWatchList}>
         <i className="fas fa-minus-circle"
         ></i>
-      </span>
+      </div>
       ) : (
-        <span key={this.state.inWatchList} onClick={this.handleWatchList}>
+        <div className="watchListButton" key={this.state.inWatchList} onClick={this.handleWatchList}>
           <i className="fas fa-plus-circle"
           ></i>
-        </span>
+        </div>
     )
 
     let renderedObject;
@@ -68,11 +68,11 @@ class VideoRowItem extends React.Component {
       )
     } else {
       renderedObject = (
-        <>
+        <Link to={`/watch/${this.props.video.id}`}>
           <img className="rowItemImg"
             src={this.props.video.picture}
           />
-        </>
+        </Link>
       )
     }
 
@@ -81,8 +81,8 @@ class VideoRowItem extends React.Component {
         onMouseEnter={this.handleHoverOn}
         onMouseLeave={this.handleHoverOff}
       >
-        {watchListButton}
         {renderedObject}
+        {watchListButton}
       </div>
     )
   }
