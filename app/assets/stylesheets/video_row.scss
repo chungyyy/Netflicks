@@ -7,6 +7,28 @@
   width: fit-content;
 }
 
+.fa-minus-circle {
+  position: absolute;
+  font-size: 32px;
+  color: white;
+  left: 10px;
+  top: 100px;
+  z-index: 6;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.fa-plus-circle {
+  position: absolute;
+  font-size: 32px;
+  color: white;
+  left: 10px;
+  top: 100px;
+  z-index: 6;
+  cursor: pointer;
+  padding: 4px;
+}
+
 .top-row {
   margin-top: -200px;
   position: relative;
@@ -36,10 +58,10 @@
 .videoItemPlayer {
   width: auto;
   height: 100%;
-  position: absolute; 
-  right: 0; 
+  position: absolute;
+  right: 0;
   bottom: 0;
-  min-width: 100%; 
+  min-width: 100%;
   min-height: 100%;
 }
 
@@ -66,10 +88,10 @@
 
 @keyframes moveLeft {
   0% {
-    transform: translateX(0%)
+    transform: translateX(0%);
   }
 
   100% {
-    transform: translateX(-25%)
+    transform: translateX(-25%);
   }
 }

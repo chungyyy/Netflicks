@@ -7,7 +7,11 @@ import {
 } from "../../actions/video_actions";
 
 const msp = (state, ownProps) => {
+  const watchlistArrayIds = [];
   const videos = Object.values(state.entities.videos);
+  const watchlist = Object.values(state.entities.watchlist);
+  watchlist.map((video) => watchlistArrayIds.push(video.id))
+
   let watchmenId;
   let watchmenVideo;
   let watchmenVideoClip;
@@ -23,16 +27,18 @@ const msp = (state, ownProps) => {
   return {
     videos,
     watchmenId,
+    watchlist,
     watchmenVideo,
+    watchlistArrayIds,
     watchmenVideoClip
   };
 };
 
 const mdp = dispatch => {
   return {
+    addWatchListVideo: (id) => dispatch(addWatchListVideo(id)),
+    deleteWatchListVideo: (id) => dispatch(deleteWatchListVideo(id)),
     fetchWatchListVideos: () => dispatch(fetchWatchListVideos()),
-    addWatchListVideo: () => dispatch(addWatchListVideo(id)),
-    deleteWatchListVideo: () => dispatch(deleteWatchListVideo(id))
   };
 };
 
